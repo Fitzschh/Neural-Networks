@@ -1,7 +1,7 @@
 
 A_1 = [
     [1, 2, -1, 3],
-    [2, 1, 4, 0],
+    [2, -1, 4, 0],
     [-1, 3, 2, 1]
 ]
 
@@ -51,6 +51,7 @@ def layers(x, W, b):
             z[i] = 0
     return z
 
-layer = layers(v, A, b)
-print(layer)
+a_1 = layers(v, A_1, b_1)
+a_2 = layers(a_1, A_2, b_2)
+print(a_1, a_2)
 
