@@ -51,6 +51,14 @@ def layers(x, W, b):
             z[i] = 0
     return z
 
+def Loss(y_pred, y_target):
+    if len(y_pred) != len(y_target):
+        raise ValueError("Predicted and target outputs must be the same length")
+    loss = 0
+    for i in range(len(y_pred)):
+        loss += (y_pred[i] - y_target[i]) ** 2
+    return loss
+
 a_1 = layers(v, A_1, b_1)
 a_2 = layers(a_1, A_2, b_2)
 print(a_1, a_2)
