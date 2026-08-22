@@ -1,4 +1,4 @@
-from transformation import layers, MatrixVectorMul
+from transformation import layers, MatrixVectorMul, Loss, PredictionGradient
 
 p = [
     [3, 2],
@@ -14,6 +14,8 @@ W = [
 ]
 
 b = [-2, -1, -1]
+
+target = 10
 
 a_1 = []
 
@@ -47,4 +49,8 @@ for i in range(len(a_1)):
 
 for i in a_2:
     print(f"Activation Output: {i}")
+
+L = Loss(a_2, target)
+
+print(L)
 

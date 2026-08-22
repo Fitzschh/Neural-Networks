@@ -15,6 +15,8 @@ A_2 = [
 
 b_2 = [-1, 4]
 
+target = 10
+
 def MatrixVectorMul(A, x):
     if len(A[0]) != len(x):
         raise ValueError("Number of columns in a neuron must match the number of rows from the input")
@@ -51,13 +53,16 @@ def layers(x, W, b):
             z[i] = 0
     return z
 
-def Loss(y_pred, y_target):
-    if len(y_pred) != len(y_target):
-        raise ValueError("Predicted and target outputs must be the same length")
-    loss = 0
-    for i in range(len(y_pred)):
-        loss += (y_pred[i] - y_target[i]) ** 2
+def Loss(y_pred, target):
+    loss = []
+    for i in y_pred:
+        loss.append(i - target)
     return loss
+
+def PredictionGradient(y_pred, target):
+    grad_loss = []
+    for i in y_pred:
+        grad_loss.append(2 ** (i - target))
 
 a_1 = layers(v, A_1, b_1)
 a_2 = layers(a_1, A_2, b_2)
