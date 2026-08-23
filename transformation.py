@@ -64,6 +64,16 @@ def PredictionGradient(y_pred, target):
     for i in y_pred:
         grad_loss.append(2 ** (i - target))
 
+def WeightsGradient(x, W, b, target):
+    grad_W = []
+    for i in range(len(W)):
+        grad_row = []
+        for j in range(len(W[i])):
+            grad_row.append(2 * (dot_product(W[i], x) + b[i] - target) * x[j])
+        grad_W.append(grad_row)
+    return grad_W
+
+
 a_1 = layers(v, A_1, b_1)
 a_2 = layers(a_1, A_2, b_2)
 print(a_1, a_2)
