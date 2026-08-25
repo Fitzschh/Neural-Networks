@@ -1,4 +1,5 @@
 from transformation import layers, MatrixVectorMul, Loss, PredictionGradient
+from functions import softmax
 
 p = [
     [3, 2],
@@ -47,10 +48,8 @@ for i in range(len(a_1)):
     a = layers(a_1[i], W_2, b_2)
     a_2.append(a)
 
-for i in a_2:
-    print(f"Activation Output: {i}")
+z = [2, 1, 0]
 
-L = Loss(a_2, target)
-
-print(L)
+res = softmax(z)
+print(res)
 

@@ -24,3 +24,16 @@ def activation(x, W, b):
     else:
         return 0
 
+def summation(x):
+    result = 0
+    for i in x:
+        result += i
+    return result
+
+def softmax(x):
+    exp_x = [2.71828182846 ** i for i in x]
+    sum_exp_x = summation(exp_x)
+    return [i / sum_exp_x for i in exp_x]
+
+
+

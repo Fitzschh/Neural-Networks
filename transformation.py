@@ -73,7 +73,6 @@ def WeightsGradient(x, W, b, target):
         grad_W.append(grad_row)
     return grad_W
 
-
 a_1 = layers(v, A_1, b_1)
 a_2 = layers(a_1, A_2, b_2)
 print(a_1, a_2)
