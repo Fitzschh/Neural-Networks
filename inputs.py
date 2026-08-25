@@ -1,5 +1,5 @@
 from transformation import layers, MatrixVectorMul, Loss, PredictionGradient
-from functions import softmax
+from functions import softmax, cross_entropy_loss
 
 p = [
     [3, 2],
@@ -53,3 +53,6 @@ z = [2, 1, 0]
 res = softmax(z)
 print(res)
 
+loss = cross_entropy_loss(res, 0)
+
+print(loss)

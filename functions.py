@@ -1,3 +1,5 @@
+import math
+
 def dot_product(v1, v2):
     if len(v1) != len(v2):
         raise ValueError("Vectors must be of the same length")
@@ -33,7 +35,10 @@ def summation(x):
 def softmax(x):
     exp_x = [2.71828182846 ** i for i in x]
     sum_exp_x = summation(exp_x)
-    return [i / sum_exp_x for i in exp_x]
+    return [x / sum_exp_x for x in exp_x]
+
+def cross_entropy_loss(pred, target):
+    return -math.log(pred[target])
 
 
 
