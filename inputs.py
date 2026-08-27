@@ -798,7 +798,21 @@ for i in range(128):
 
     M.append(row)
 
+M2 = []
+
+for i in range(64):
+    row = []
+    for j in range(128):
+        row.append(random.randint(-5, 5))
+
+    M2.append(row)
+
 b = []
 
 for i in range(128):
     b.append(random.randint(-5, 5))
+
+b2 = []
+
+for i in range(64):
+    b2.append(random.randint(-5, 5))
