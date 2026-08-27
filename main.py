@@ -12,3 +12,7 @@ print(a2)
 z = logits(OL, a2, b3)
 print("Output Layer")
 print(z)
+
+y = softmax(z)
+print("Prediction")
+print(y)

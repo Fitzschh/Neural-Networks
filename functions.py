@@ -33,7 +33,8 @@ def summation(x):
     return result
 
 def softmax(x):
-    exp_x = [2.71828182846 ** i for i in x]
+    max_x = max(x)
+    exp_x = [2.71828182846 ** (i - max_x) for i in x]
     sum_exp_x = summation(exp_x)
     return [x / sum_exp_x for x in exp_x]
 
