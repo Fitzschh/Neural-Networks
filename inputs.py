@@ -807,6 +807,15 @@ for i in range(64):
 
     M2.append(row)
 
+OL = []
+
+for i in range(10):
+    row = []
+    for j in range(64):
+        row.append(random.randint(-5, 5))
+
+    OL.append(row)
+
 b = []
 
 for i in range(128):
@@ -816,3 +825,9 @@ b2 = []
 
 for i in range(64):
     b2.append(random.randint(-5, 5))
+
+b3 = []
+
+for i in range(10):
+    b3.append(random.randint(-5, 5))
+
