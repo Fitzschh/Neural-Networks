@@ -1,4 +1,5 @@
 import math
+from operator import le
 
 def dot_product(v1, v2):
     if len(v1) != len(v2):
@@ -8,7 +9,7 @@ def dot_product(v1, v2):
         total += v1[i] * v2[i]
     return total
 
-def matrix_vector_mul(A, x):
+def logits(A, x, b):
     if len(A[0]) != len(x):
         raise ValueError("Number of columns in A must match the number of rows in x")
     Ax = []
@@ -16,13 +17,12 @@ def matrix_vector_mul(A, x):
         row_sum = 0
         for j in range(len(A[i])):
             row_sum += A[i][j] * x[j]
-        Ax.append(row_sum)
+        Ax.append(row_sum + b[i])
     return Ax
 
-def activation(x, W, b):
-    pre_act = dot_product(W, x) + b
-    if pre_act > 0:
-        return pre_act
+def activation(z):
+    if z > 0:
+        return z
     else:
         return 0
 
@@ -39,6 +39,12 @@ def softmax(x):
 
 def cross_entropy_loss(pred, target):
     return -math.log(pred[target])
+
+def hidden_layers(W, x, b):
+    z = logits(W, x, b)
+    a = [activation(z[i]) for i in range(len(z))]
+    return a
+
 
 
 
