@@ -1,5 +1,5 @@
-from functions import hidden_layers, softmax, logits, cross_entropy_loss
-from inputs import M, b, seven, M2, b2, OL, b3
+from functions import hidden_layers, softmax, logits, cross_entropy_loss, loss_gradients
+from inputs import M, b, seven, M2, b2, OL, b3, t
 
 a = hidden_layers(M, seven, b)
 print("First Layer")
@@ -20,4 +20,13 @@ print(y)
 loss_7 = cross_entropy_loss(y, 7)
 print(loss_7)
 
+loss_grad = loss_gradients(y, t)
+print(loss_grad)
+
+#Theory check
+summed_grad = 0
+for i in range(len(loss_grad)):
+    summed_grad += loss_grad[i]
+
+print(summed_grad)
 

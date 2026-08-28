@@ -33,8 +33,7 @@ def summation(x):
     return result
 
 def softmax(x):
-    max_x = max(x)
-    exp_x = [2.71828182846 ** (i - max_x) for i in x]
+    exp_x = [2.71828182846 ** i for i in x]
     sum_exp_x = summation(exp_x)
     return [x / sum_exp_x for x in exp_x]
 
@@ -46,5 +45,14 @@ def hidden_layers(W, x, b):
     a = [activation(z[i]) for i in range(len(z))]
     return a
 
+def loss_gradients(p, y):
+    if len(p) != len(y):
+        raise ValueError("Both lists must be of the same dimensions")
+    loss = []
+    for i in range(len(p)):
+        loss.append(p[i] - y[i])
+    return loss
+
+        
 
 
