@@ -1,4 +1,4 @@
-from functions import hidden_layers, softmax, logits
+from functions import hidden_layers, softmax, logits, cross_entropy_loss
 from inputs import M, b, seven, M2, b2, OL, b3
 
 a = hidden_layers(M, seven, b)
@@ -16,3 +16,8 @@ print(z)
 y = softmax(z)
 print("Prediction")
 print(y)
+
+loss_7 = cross_entropy_loss(y, 7)
+print(loss_7)
+
+

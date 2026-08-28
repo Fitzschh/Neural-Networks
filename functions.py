@@ -48,4 +48,3 @@ def hidden_layers(W, x, b):
 
 
 
-
