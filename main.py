@@ -1,4 +1,4 @@
-from functions import hidden_layers, softmax, logits, cross_entropy_loss, loss_gradients
+from functions import hidden_layers, softmax, logits, cross_entropy_loss, loss_gradients, backpropagation
 from inputs import M, b, seven, M2, b2, OL, b3, t
 
 a = hidden_layers(M, seven, b)
@@ -20,6 +20,7 @@ print(y)
 loss_7 = cross_entropy_loss(y, 7)
 print(loss_7)
 
+#Skipped Jacobian Matrix
 loss_grad = loss_gradients(y, t)
 print(loss_grad)
 
@@ -27,6 +28,10 @@ print(loss_grad)
 summed_grad = 0
 for i in range(len(loss_grad)):
     summed_grad += loss_grad[i]
+#Fundamentally should equate to zero
 
-print(summed_grad)
+print("dL/da2")
+dLda2 = backpropagation(OL, loss_grad)
+print(dLda2)
+print(len(dLda2))
 

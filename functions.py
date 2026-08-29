@@ -53,6 +53,25 @@ def loss_gradients(p, y):
         loss.append(p[i] - y[i])
     return loss
 
+def backpropagation(M, x):
+    M_new = []
+    for j in range(len(M[0])):
+        row = []
+        for i in range(len(M)):
+            row.append(M[i][j])
+        M_new.append(row)
+    dLdx = []
+    if len(M_new[0]) != len(x):
+        raise ValueError("Must be of the same dimension")
+    for i in range(len(M_new)):
+        row_sum = 0
+        for j in range(len(M_new[i])):
+            row_sum += M_new[i][j] * x[j]
+        dLdx.append(row_sum)
+    return dLdx
+
+
+
         
 
 
