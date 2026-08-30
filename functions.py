@@ -87,6 +87,12 @@ def dReLU(x):
             dLdx.append(0)
     return dLdx
 
+def gradient_descent(M, x, n):
+    for i in range(len(M)):
+        for j in range(len(x)):
+            M[i][j] = M[i][j] - (n * x[j])
+    return M
+
 
 
 

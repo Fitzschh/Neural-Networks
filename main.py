@@ -1,5 +1,5 @@
-from functions import hidden_layers, softmax, logits, cross_entropy_loss, loss_gradients, backpropagation, dReLU, vector_mul
-from inputs import M, b, seven, M2, b2, OL, b3, t
+from functions import hidden_layers, softmax, logits, cross_entropy_loss, loss_gradients, backpropagation, dReLU, vector_mul, gradient_descent
+from inputs import M, b, seven, M2, b2, OL, b3, t, n
 
 a = hidden_layers(M, seven, b)
 print("First Layer")
@@ -54,6 +54,15 @@ dLdz = vector_mul(dLda, dadz)
 print("Second Layer -> First Layer")
 print(dLdz)
 #Backpropagation from Second Layer to First Layer
+
+dLdW = backpropagation(M, dLdz)
+print(dLdW)
+
+M = gradient_descent(M, dLdW, n)
+print(M)
+
+print(M == M)
+
 
 
 
