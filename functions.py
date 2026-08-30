@@ -70,6 +70,15 @@ def backpropagation(M, x):
         dLdx.append(row_sum)
     return dLdx
 
+def dReLU(x):
+    dLdx = []
+    for i in x:
+        if i > 0:
+            dLdx.append(1)
+        else:
+            dLdx.append(0)
+    return dLdx
+
 
 
         

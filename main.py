@@ -1,4 +1,4 @@
-from functions import hidden_layers, softmax, logits, cross_entropy_loss, loss_gradients, backpropagation
+from functions import hidden_layers, softmax, logits, cross_entropy_loss, loss_gradients, backpropagation, dReLU
 from inputs import M, b, seven, M2, b2, OL, b3, t
 
 a = hidden_layers(M, seven, b)
@@ -34,4 +34,7 @@ print("dL/da2")
 dLda2 = backpropagation(OL, loss_grad)
 print(dLda2)
 print(len(dLda2))
+
+da2dz2 = dReLU(a2)
+print(len(da2dz2))
 
