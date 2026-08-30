@@ -9,6 +9,14 @@ def dot_product(v1, v2):
         total += v1[i] * v2[i]
     return total
 
+def vector_mul(v1, v2):
+    if len(v1) != len(v2):
+        raise ValueError("Vectors must be of the same dimensions")
+    res = [v1[i] * v2[i] for i in range(len(v1))]
+    return res
+
+
+
 def logits(A, x, b):
     if len(A[0]) != len(x):
         raise ValueError("Number of columns in A must match the number of rows in x")
@@ -78,6 +86,7 @@ def dReLU(x):
         else:
             dLdx.append(0)
     return dLdx
+
 
 
 

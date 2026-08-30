@@ -1,4 +1,4 @@
-from functions import hidden_layers, softmax, logits, cross_entropy_loss, loss_gradients, backpropagation, dReLU
+from functions import hidden_layers, softmax, logits, cross_entropy_loss, loss_gradients, backpropagation, dReLU, vector_mul
 from inputs import M, b, seven, M2, b2, OL, b3, t
 
 a = hidden_layers(M, seven, b)
@@ -36,5 +36,8 @@ print(dLda2)
 print(len(dLda2))
 
 da2dz2 = dReLU(a2)
-print(len(da2dz2))
+print(da2dz2)
+
+dLdz2 = vector_mul(dLda2, da2dz2)
+print(dLdz2)
 
