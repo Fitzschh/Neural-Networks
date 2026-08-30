@@ -1,5 +1,4 @@
 import math
-from operator import le
 
 def dot_product(v1, v2):
     if len(v1) != len(v2):
@@ -14,8 +13,6 @@ def vector_mul(v1, v2):
         raise ValueError("Vectors must be of the same dimensions")
     res = [v1[i] * v2[i] for i in range(len(v1))]
     return res
-
-
 
 def logits(A, x, b):
     if len(A[0]) != len(x):
@@ -92,6 +89,13 @@ def gradient_descent(M, x, n):
         for j in range(len(x)):
             M[i][j] = M[i][j] - (n * x[j])
     return M
+
+def gradient_descent_bias(b, x, n):
+    if len(b) != len(x):
+        raise ValueError("Vectors must be of the same dimensions")
+    for i in range(len(b)):
+        b[i] = b[i] - (n * x[i])
+    return b
 
 
 
