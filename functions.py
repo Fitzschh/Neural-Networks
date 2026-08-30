@@ -84,10 +84,19 @@ def dReLU(x):
             dLdx.append(0)
     return dLdx
 
+def gradient(dLdx, x):
+    W = []
+    for i in range(len(dLdx)):
+        row = []
+        for j in range(len(x)):
+            row.append(dLdx[i] * x[j])
+        W.append(row)
+    return W
+            
 def gradient_descent(M, x, n):
     for i in range(len(M)):
         for j in range(len(x)):
-            M[i][j] = M[i][j] - (n * x[j])
+            M[i][j] = M[i][j] - (n * x[i][j])
     return M
 
 def gradient_descent_bias(b, x, n):

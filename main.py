@@ -1,4 +1,4 @@
-from functions import hidden_layers, softmax, logits, cross_entropy_loss, loss_gradients, backpropagation, dReLU, vector_mul, gradient_descent, gradient_descent_bias
+from functions import hidden_layers, softmax, logits, cross_entropy_loss, loss_gradients, backpropagation, dReLU, vector_mul, gradient_descent, gradient_descent_bias, gradient
 from inputs import M, b, seven, M2, b2, OL, b3, t, n
 
 a = hidden_layers(M, seven, b)
@@ -55,11 +55,10 @@ print("Second Layer -> First Layer")
 print(dLdz)
 #Backpropagation from Second Layer to First Layer
 
-dLdW = backpropagation(M, dLdz)
+dLdW = gradient(dLdz, seven)
 print(dLdW)
 
 M = gradient_descent(M, dLdW, n)
-print(M)
 #Weights of First Layer altered"
 
 dLdb = vector_mul(dLdz, b)
@@ -68,6 +67,4 @@ print("Update bias")
 print(b)
 #Bias of First Layer updated"
 
-
-
-
+print(len(M))
