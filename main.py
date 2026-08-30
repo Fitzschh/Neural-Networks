@@ -39,5 +39,11 @@ da2dz2 = dReLU(a2)
 print(da2dz2)
 
 dLdz2 = vector_mul(dLda2, da2dz2)
+print("Output Layer -> Second Layer")
 print(dLdz2)
+#Backpropagation from Output Layer to Second Layer
+
+dLda = backpropagation(M2, dLdz2)
+print("Second Layer")
+print(dLda)
 
