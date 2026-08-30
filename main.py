@@ -50,3 +50,12 @@ print(dLda)
 dadz = dReLU(a)
 print(dadz)
 
+dLdz = vector_mul(dLda, dadz)
+print("Second Layer -> First Layer")
+print(dLdz)
+#Backpropagation from Second Layer to First Layer
+
+
+
+
+
