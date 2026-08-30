@@ -47,3 +47,6 @@ dLda = backpropagation(M2, dLdz2)
 print("Second Layer")
 print(dLda)
 
+dadz = dReLU(a)
+print(dadz)
+
