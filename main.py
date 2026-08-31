@@ -61,10 +61,17 @@ print(dLdW)
 M = gradient_descent(M, dLdW, n)
 #Weights of First Layer altered"
 
-dLdb = vector_mul(dLdz, b)
+dLdb = dLdz
 b = gradient_descent_bias(b, dLdb, n)
 print("Update bias")
 print(b)
 #Bias of First Layer updated"
 
-print(len(M))
+dLdW2 = gradient(dLdz2, a)
+
+M2 = gradient_descent(M2, dLdW2, n)
+print("Second Layer weight updated")
+print(M2)
+
+
+
