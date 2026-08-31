@@ -32,8 +32,6 @@ for i in range(len(loss_grad)):
 
 print("dL/da2")
 dLda2 = backpropagation(OL, loss_grad)
-print(dLda2)
-print(len(dLda2))
 
 da2dz2 = dReLU(a2)
 print(da2dz2)
@@ -57,7 +55,6 @@ print(dLdz)
 
 dLdW = gradient(dLdz, seven)
 print(dLdW)
-
 M = gradient_descent(M, dLdW, n)
 #Weights of First Layer altered"
 
@@ -78,4 +75,14 @@ dLdb2 = dLdz2
 b2 = gradient_descent_bias(b2, dLdb2, n)
 print("Second layer bias updated")
 print(b2)
+#Second Layer Backpropagation
+
+dLdOL = gradient(loss_grad, a2)
+OL = gradient_descent(OL, dLdOL, n)
+print(OL)
+
+dLdb3 = loss_grad
+b3 = gradient_descent_bias(b3, dLdb3, n)
+print("Output Layer bias updated")
+print(b3)
 
