@@ -73,5 +73,9 @@ M2 = gradient_descent(M2, dLdW2, n)
 print("Second Layer weight updated")
 print(M2)
 
+dLdb2 = dLdz2
 
+b2 = gradient_descent_bias(b2, dLdb2, n)
+print("Second layer bias updated")
+print(b2)
 
