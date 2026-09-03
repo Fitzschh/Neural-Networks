@@ -1,4 +1,5 @@
 import math
+from PIL import Image
 
 def dot_product(v1, v2):
     if len(v1) != len(v2):
@@ -38,7 +39,7 @@ def summation(x):
     return result
 
 def softmax(x):
-    exp_x = [2.71828182846 ** i for i in x]
+    exp_x = [math.exp(i) for i in x]
     sum_exp_x = summation(exp_x)
     return [x / sum_exp_x for x in exp_x]
 
@@ -105,6 +106,22 @@ def gradient_descent_bias(b, x, n):
     for i in range(len(b)):
         b[i] = b[i] - (n * x[i])
     return b
+
+#Inputs
+
+def image_to_vector(path):
+    image = Image.open(path)
+
+    image = image.convert("L")
+    image = image.resize((28, 28))
+
+    pixels = list(image.getdata())
+
+    return [pixel / 255.0 for pixel in pixels]
+
+
+
+
 
 
 
