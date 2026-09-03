@@ -831,8 +831,8 @@ b3 = []
 for i in range(10):
     b3.append(random.uniform(-0.05, 0.05))
 
-t = [0, 0, 0, 0, 0, 0, 0, 1, 0, 0]#Seven
-t2 = 7
+t = [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]#Five
+t2 = 5
 
 n = 0.1
 
