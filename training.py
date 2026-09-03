@@ -56,8 +56,14 @@ def train(M, b, input, M2, b2, OL, b3, t, t2, n, iter):
 
     return loss, iter, pred
 
-loss, iterations, pred = train(M, b, seven, M2, b2, OL, b3, t, t2, n, 3)
+def save_model():
+    pass
+
+
+loss, iterations, pred = train(M, b, seven, M2, b2, OL, b3, t, t2, n, 4)
 print(loss, iterations, pred)
+
+
 
 
 
