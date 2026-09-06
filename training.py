@@ -59,6 +59,8 @@ def train(M, b, input, M2, b2, OL, b3, t, t2, n, iter):
     print(y)
     print(f"Prediction: {pred}")
 
+    return M, b, M2, b2, OL, b3
+
 def save_model():
     pass
 
