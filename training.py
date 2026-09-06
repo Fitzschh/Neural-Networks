@@ -61,6 +61,23 @@ def train(M, b, input, M2, b2, OL, b3, t, t2, n, iter):
 
     return M, b, M2, b2, OL, b3
 
+def predict(M, b, input, M2, b2, OL, b3):
+    a = hidden_layers(M, input, b) #First Layer
+
+    a2 = hidden_layers(M2, a, b2) #Second Layer
+
+    z = logits(OL, a2, b3) #Output Layer
+
+    y = softmax(z) 
+
+    int_pred = max(y)
+    for i in range(len(y)):
+        if y[i] == int_pred:
+            pred = i
+
+    print(y)
+    print(f"Prediction: {pred}")
+
 def save_model():
     pass
 

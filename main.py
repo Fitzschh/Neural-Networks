@@ -1,5 +1,5 @@
 from functions import image_to_vector, label_to_vector
-from training import train
+from training import train, predict
 from inputs import M, b, M2, b2, OL, b3, n, t2
 
 file = open("images/t10k-images-idx3-ubyte", "rb")
@@ -23,5 +23,5 @@ for i in range(10):
     for pixel in pixels:
         inputs.append(pixel / 255)
 
-    M, b, M2, b2, OL, b3 = train(M, b, inputs, M2, b2, OL, b3, target, label, n, 10)
+    M, b, M2, b2, OL, b3 = train(M, b, inputs, M2, b2, OL, b3, target, label, n, 20)
 
