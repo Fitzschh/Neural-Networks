@@ -119,6 +119,11 @@ def image_to_vector(path):
 
     return [pixel / 255.0 for pixel in pixels]
 
+def label_to_vector(label):
+    vector = [0] * 10
+    vector[label] = 1
+    return vector
+
 
 
 
