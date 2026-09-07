@@ -12,7 +12,7 @@ data = file2.read(8)
 images = []
 labels = []
 #Read images and labels
-for i in range(100):
+for i in range(1000):
     image = file.read(784)
     label = file2.read(1)
 
