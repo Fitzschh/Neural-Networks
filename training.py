@@ -68,7 +68,7 @@ def predict(M, b, input, M2, b2, OL, b3):
 
     z = logits(OL, a2, b3) #Output Layer
 
-    y = softmax(z) 
+    y = softmax(z) #Prediction
 
     int_pred = max(y)
     for i in range(len(y)):

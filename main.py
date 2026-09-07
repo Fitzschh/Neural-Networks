@@ -8,7 +8,7 @@ data = file.read(16)
 file2 = open("images/t10k-labels-idx1-ubyte", "rb")
 data = file2.read(8)
 
-
+#Training
 for i in range(10):
     image = file.read(784)
     label = file2.read(1)
@@ -24,4 +24,21 @@ for i in range(10):
         inputs.append(pixel / 255)
 
     M, b, M2, b2, OL, b3 = train(M, b, inputs, M2, b2, OL, b3, target, label, n, 20)
+
+#Prediction Only
+for i in range(10):
+    image = file.read(784)
+    label = file2.read(1)
+
+    label = label[0]
+    target = label_to_vector(label)
+    print(f"Actual label: {label}")
+    pixels = list(image)
+
+    inputs = []
+
+    for pixel in pixels:
+        inputs.append(pixel / 255)
+
+    predict(M, b, inputs, M2, b2, OL, b3)
 
