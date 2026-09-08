@@ -3,7 +3,7 @@ from inputs import M, b, seven, M2, b2, OL, b3, t, n, t2
 
 
 def train(M, b, input, M2, b2, OL, b3, t, t2, n, iter):
-    print("Iterations --- Loss")
+    #print("Iterations --- Loss")
     for epoch in range(iter):
         #Forward propagation
         a = hidden_layers(M, input, b) #First Layer
@@ -49,17 +49,19 @@ def train(M, b, input, M2, b2, OL, b3, t, t2, n, iter):
         dLdb3 = dLdzi
         b3 = gradient_descent_bias(b3, dLdb3, n)#Biases of Output Layer altered
 
-        print(f"{epoch}          --- {loss}")
+        #print(f"{epoch}          --- {loss}")
 
+    """
     int_pred = max(y)
     for i in range(len(y)):
         if y[i] == int_pred:
             pred = i
+    """
+    #print(y)
+    #print(f"Prediction: {pred}")
+    L = loss
 
-    print(y)
-    print(f"Prediction: {pred}")
-
-    return M, b, M2, b2, OL, b3
+    return M, b, M2, b2, OL, b3, L
 
 def predict(M, b, input, M2, b2, OL, b3):
     a = hidden_layers(M, input, b) #First Layer
@@ -83,7 +85,6 @@ def save_model():
 
 
 train(M, b, seven, M2, b2, OL, b3, t, t2, n, 4)
-
 
 
 

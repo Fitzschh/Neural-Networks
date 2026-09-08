@@ -11,8 +11,11 @@ data = file2.read(8)
 
 images = []
 labels = []
+epochs = []
+avg_loss = []
+
 #Read images and labels
-for i in range(9990):
+for i in range(1000):
     image = file.read(784)
     label = file2.read(1)
 
@@ -22,17 +25,26 @@ for i in range(9990):
 #Training
 for epoch in range(10):
 
+    total_loss = 0
+
     for i in range(len(images)):
 
         target = label_to_vector(labels[i])
-        print(target)
+        #print(target)
         pixels = list(images[i])
         inputs = []
                 
         for pixel in pixels:
             inputs.append(pixel / 255)
 
-        M, b, M2, b2, OL, b3 = train(M, b, inputs, M2, b2, OL, b3, target, labels[i], n, 1)
+        M, b, M2, b2, OL, b3, loss = train(M, b, inputs, M2, b2, OL, b3, target, labels[i], n, 1)
+        total_loss += loss
+
+    average_loss = total_loss / len(images)
+
+    print(f"Epoch {epoch + 1} --- Average Loss: {average_loss}")
+    avg_loss.append(average_loss)
+    epochs.append(epoch + 1)
 
 #Prediction Only
 for i in range(10):
