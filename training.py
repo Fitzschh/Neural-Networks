@@ -79,6 +79,7 @@ def predict(M, b, input, M2, b2, OL, b3):
 
     print(y)
     print(f"Prediction: {pred}")
+    return pred
 
 def save_model():
     pass

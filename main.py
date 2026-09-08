@@ -2,10 +2,10 @@ from functions import image_to_vector, label_to_vector
 from training import train, predict
 from inputs import M, b, M2, b2, OL, b3, n, t2
 
-file = open("images/t10k-images-idx3-ubyte", "rb")
+file = open("images/train-images-idx3-ubyte", "rb")
 data = file.read(16)
 
-file2 = open("images/t10k-labels-idx1-ubyte", "rb")
+file2 = open("images/train-labels-idx1-ubyte", "rb")
 data = file2.read(8)
 
 
@@ -15,7 +15,7 @@ epochs = []
 avg_loss = []
 
 #Read images and labels
-for i in range(1000):
+for i in range(10000):
     image = file.read(784)
     label = file2.read(1)
 
@@ -46,8 +46,11 @@ for epoch in range(10):
     avg_loss.append(average_loss)
     epochs.append(epoch + 1)
 
+
+correct_pred = []
 #Prediction Only
-for i in range(10):
+num_of_images = 1000
+for i in range(num_of_images):
     image = file.read(784)
     label = file2.read(1)
 
@@ -61,5 +64,11 @@ for i in range(10):
     for pixel in pixels:
         inputs.append(pixel / 255)
 
-    predict(M, b, inputs, M2, b2, OL, b3)
+    p = predict(M, b, inputs, M2, b2, OL, b3)
+    if p == label:
+        correct_pred.append(1)
+
+accuracy = (sum(correct_pred) / num_of_images) * 100
+print(f"Accuracy: {accuracy}%")
+    
 

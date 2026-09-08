@@ -6,3 +6,4 @@ plt.title("Epochs vs Average Loss")
 plt.xlabel("Epochs")
 plt.ylabel("Average Loss")
 plt.show()
+
