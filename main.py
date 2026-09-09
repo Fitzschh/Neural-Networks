@@ -14,8 +14,9 @@ labels = []
 epochs = []
 avg_loss = []
 
+training_images = 10000
 #Read images and labels
-for i in range(30000):
+for i in range(training_images):
     image = file.read(784)
     label = file2.read(1)
 
