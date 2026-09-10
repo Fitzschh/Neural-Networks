@@ -43,7 +43,7 @@ for stage in range(len(training_images)):
 
     n = 0.1
 
-    for epoch in range(10):
+    for epoch in range(20):
 
         total_loss = 0
 
@@ -60,7 +60,7 @@ for stage in range(len(training_images)):
             M, b, M2, b2, OL, b3, loss = train(M, b, inputs, M2, b2, OL, b3, target, labels[i], n, 1)
             total_loss += loss
 
-        n = n * 0.95
+        #n = n * 0.95
 
         average_loss = total_loss / len(images)
 
@@ -80,7 +80,7 @@ for stage in range(len(training_images)):
 
     file3.seek(16)
     file4.seek(8)
-    
+
     for i in range(num_of_images):
         image = file3.read(784)
         label = file4.read(1)

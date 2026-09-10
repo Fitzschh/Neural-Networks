@@ -77,7 +77,7 @@ def predict(M, b, input, M2, b2, OL, b3):
         if y[i] == int_pred:
             pred = i
 
-    print(y)
+    #print(y)
     return pred
 
 def save_model():
