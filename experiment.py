@@ -2,6 +2,7 @@ from functions import image_to_vector, label_to_vector
 from training import train, predict
 from inputs import M, b, M2, b2, OL, b3, n, t2
 import matplotlib.pyplot as plt
+import time
 
 file = open("images/train-images-idx3-ubyte", "rb")
 data = file.read(16)
@@ -15,18 +16,26 @@ labels = []
 epochs = []
 avg_loss = []
 accuracy_list = []
+training_times = []
 
 training_images = [10000, 20000, 30000, 40000, 50000]
-for i in range(len(training_images)):
-    #Read images and labels
-    for j in range(training_images[i]):
+previous_count = 0
+
+for stage in range(len(training_images)):
+
+    additional_images = training_images[stage] - previous_count
+
+    for j in range(additional_images):
         image = file.read(784)
         label = file2.read(1)
 
         images.append(image)
         labels.append(label[0])
 
-    #Training
+    previous_count = training_images[stage]
+
+    training_start = time.perf_counter()
+
     for epoch in range(10):
 
         total_loss = 0
@@ -50,6 +59,10 @@ for i in range(len(training_images)):
         avg_loss.append(average_loss)
         epochs.append(epoch + 1)
 
+    training_time = time.perf_counter() - training_start
+    training_times.append(training_time)
+
+    print(f"Training time for {training_images[stage]} images: {training_time:.2f} seconds")
 
     correct_pred = []
     #Prediction Only
@@ -76,9 +89,9 @@ for i in range(len(training_images)):
     accuracy_list.append(accuracy)
     print(f"Accuracy: {accuracy}%")
 
+
 plt.plot(training_images, accuracy_list)
 plt.title("Training Images vs Accuracy for n = 0.1")
 plt.xlabel("Training Images")
 plt.ylabel("Accuracy")
 plt.show()
-        
