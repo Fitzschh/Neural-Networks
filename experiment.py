@@ -8,8 +8,13 @@ file = open("images/train-images-idx3-ubyte", "rb")
 data = file.read(16)
 
 file2 = open("images/train-labels-idx1-ubyte", "rb")
-data = file2.read(8)
+data2 = file2.read(8)
 
+file3 = open("images/t10k-images-idx3-ubyte", "rb")
+data3 = file3.read(16)
+
+file4 = open("images/t10k-labels-idx1-ubyte", "rb")
+data4 = file4.read(8)
 
 images = []
 labels = []
@@ -36,6 +41,8 @@ for stage in range(len(training_images)):
 
     training_start = time.perf_counter()
 
+    n = 0.1
+
     for epoch in range(10):
 
         total_loss = 0
@@ -53,6 +60,8 @@ for stage in range(len(training_images)):
             M, b, M2, b2, OL, b3, loss = train(M, b, inputs, M2, b2, OL, b3, target, labels[i], n, 1)
             total_loss += loss
 
+        n = n * 0.95
+
         average_loss = total_loss / len(images)
 
         print(f"Epoch {epoch + 1} --- Average Loss: {average_loss}")
@@ -67,13 +76,18 @@ for stage in range(len(training_images)):
     correct_pred = []
     #Prediction Only
     num_of_images = 1000
+
+
+    file3.seek(16)
+    file4.seek(8)
+    
     for i in range(num_of_images):
-        image = file.read(784)
-        label = file2.read(1)
+        image = file3.read(784)
+        label = file4.read(1)
 
         label = label[0]
         target = label_to_vector(label)
-        print(f"Actual label: {label}")
+        #print(f"Actual label: {label}")
         pixels = list(image)
 
         inputs = []
