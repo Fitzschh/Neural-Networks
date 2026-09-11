@@ -60,7 +60,7 @@ for stage in range(len(training_images)):
             M, b, M2, b2, OL, b3, loss = train(M, b, inputs, M2, b2, OL, b3, target, labels[i], n, 1)
             total_loss += loss
 
-        #n = n * 0.95
+        n = n * 0.95
 
         average_loss = total_loss / len(images)
 
