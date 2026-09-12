@@ -3,6 +3,9 @@ from training import train, predict
 from inputs import M, b, M2, b2, OL, b3, n, t2
 import matplotlib.pyplot as plt
 import time
+import random
+
+random.seed(42)
 
 file = open("images/train-images-idx3-ubyte", "rb")
 data = file.read(16)
@@ -23,7 +26,7 @@ avg_loss = []
 accuracy_list = []
 training_times = []
 
-training_images = [10000, 20000, 30000, 40000, 50000]
+training_images = [10000, 20000, 30000, 40000, 50000, 60000]
 previous_count = 0
 
 for stage in range(len(training_images)):
@@ -41,13 +44,18 @@ for stage in range(len(training_images)):
 
     training_start = time.perf_counter()
 
-    n = 0.1
+    n = 0.001
 
     for epoch in range(20):
 
         total_loss = 0
 
-        for i in range(len(images)):
+        #Shuffling images and labels
+        indices = list(range(len(images)))
+
+        random.shuffle(indices)
+
+        for i in indices:
 
             target = label_to_vector(labels[i])
             #print(target)
