@@ -109,3 +109,4 @@ plt.title("Training Images vs Accuracy for n = 0.1")
 plt.xlabel("Training Images")
 plt.ylabel("Accuracy")
 plt.show()
+
