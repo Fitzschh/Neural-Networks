@@ -44,7 +44,7 @@ for stage in range(len(training_images)):
 
     training_start = time.perf_counter()
 
-    n = 0.001
+    n = 0.01
 
     for epoch in range(20):
 
