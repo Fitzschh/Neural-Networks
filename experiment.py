@@ -40,7 +40,7 @@ for j in range(training_images):
 
 n = 0.01
 
-for epoch in range(20):
+for epoch in range(70):
 
     total_loss = 0
 

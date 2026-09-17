@@ -83,6 +83,10 @@ def predict(M, b, input, M2, b2, OL, b3):
 def save_model():
     pass
 
+def batch_train():
+    pass
+
+
 
 train(M, b, seven, M2, b2, OL, b3, t, t2, n, 4)
 
