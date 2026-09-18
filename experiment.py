@@ -37,7 +37,7 @@ for j in range(training_images):
     labels.append(label[0])
 
 
-n = 0.01
+n = 0.1
 
 training_start = time.perf_counter()
 
@@ -148,7 +148,7 @@ for epoch in range(10):
         #Updating weights and biases
         M, b, M2, b2, OL, b3 = batch_descent(M, b, M2, b2, OL, b3, avg_gradient_W, avg_gradient_b, avg_gradient_W2, avg_gradient_b2, avg_gradient_OL, avg_gradient_b3, n)
 
-    n = n * 0.95
+    #n = n * 0.95
 
     average_loss = total_loss / len(images)
 
