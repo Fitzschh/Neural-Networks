@@ -26,7 +26,7 @@ avg_loss = []
 accuracy_list = []
 training_times = []
 
-training_images = 20000
+training_images = 60000
 batch_size = 32
 
 for j in range(training_images):
