@@ -1,13 +1,9 @@
 import math
 from PIL import Image
+import numpy as np
 
 def dot_product(v1, v2):
-    if len(v1) != len(v2):
-        raise ValueError("Vectors must be of the same length")
-    total = 0
-    for i in range(len(v1)):
-        total += v1[i] * v2[i]
-    return total
+    return v1 @ v2
 
 def vector_mul(v1, v2):
     if len(v1) != len(v2):

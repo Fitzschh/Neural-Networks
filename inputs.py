@@ -57,8 +57,5 @@ for i in range(10):
 
 b3 = np.array(b3)
 
-t = [0, 0, 0, 0, 0, 0, 0, 1, 0, 0]#Seven
-t2 = 7
-
 n = 0.1
 

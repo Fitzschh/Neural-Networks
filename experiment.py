@@ -1,6 +1,6 @@
 from functions import image_to_vector, label_to_vector
 from training import train, predict, batch_gradient, batch_descent
-from inputs import M, b, M2, b2, OL, b3, n, t2
+from inputs import M, b, M2, b2, OL, b3, n
 import matplotlib.pyplot as plt
 import time
 import random
