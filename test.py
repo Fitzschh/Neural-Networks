@@ -1,11 +1,11 @@
 from functions import dot_product
 import numpy as np
 
-v1 = [1, 4, 5]
+M1 = [[1, 4, 5], [2, 3, 6], [7, 8, 9]]
 v2 = [2, 3, 6]
 
-v1 = np.array(v1)
+M1 = np.array(M1)
 v2 = np.array(v2)
 
-result = dot_product(v1, v2)
-print(f"Dot product of {v1} and {v2} is: {result}")
+result = dot_product(M1, v2)
+print(f"Dot product of {M1} and {v2} is: {result}")
