@@ -29,8 +29,7 @@ def cross_entropy_loss(pred, target):
 
 def hidden_layers(W, x, b):
     z = logits(W, x, b)
-    a = [activation(z[i]) for i in range(len(z))]
-    return a
+    return activation(z)
 
 def loss_gradients(p, y):
     if len(p) != len(y):
@@ -45,13 +44,7 @@ def backpropagation(M, x):
     return M.T @ x
 
 def dReLU(x):
-    dLdx = []
-    for i in x:
-        if i > 0:
-            dLdx.append(1)
-        else:
-            dLdx.append(0)
-    return dLdx
+    return (x > 0).astype(float)
 
 def gradient(dLdx, x):
     return np.outer(dLdx, x)

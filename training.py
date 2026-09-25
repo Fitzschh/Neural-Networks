@@ -1,5 +1,5 @@
 from functions import hidden_layers, softmax, logits, cross_entropy_loss, loss_gradients, backpropagation, dReLU, vector_mul, gradient_descent, gradient_descent_bias, gradient
-from inputs import M, b, seven, M2, b2, OL, b3, t, n, t2
+from inputs import M, b, M2, b2, OL, b3, n
 
 
 def train(M, b, input, M2, b2, OL, b3, t, t2, n, iter):
@@ -140,17 +140,6 @@ def batch_descent(M, b, M2, b2, OL, b3, dLdW, dLdb, dLdW2, dLdb2, dLdOL, dLdb3, 
     b3 = gradient_descent_bias(b3, dLdb3, n)#Biases of Output Layer altered
 
     return M, b, M2, b2, OL, b3
-
-    
-
-    
-
-    
-
-
-
-train(M, b, seven, M2, b2, OL, b3, t, t2, n, 4)
-
 
 
 
