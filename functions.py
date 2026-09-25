@@ -17,21 +17,12 @@ def logits(A, x, b):
     return Ax_b
 
 def activation(z):
-    if z > 0:
-        return z
-    else:
-        return 0
-
-def summation(x):
-    result = 0
-    for i in x:
-        result += i
-    return result
+    return max(0, z)
 
 def softmax(x):
-    exp_x = [math.exp(i) for i in x]
-    sum_exp_x = summation(exp_x)
-    return [x / sum_exp_x for x in exp_x]
+    exp_x = np.exp(x)
+    sum_exp_x = np.sum(exp_x)
+    return exp_x / sum_exp_x
 
 def cross_entropy_loss(pred, target):
     return -math.log(pred[target])
@@ -63,19 +54,10 @@ def dReLU(x):
     return dLdx
 
 def gradient(dLdx, x):
-    W = []
-    for i in range(len(dLdx)):
-        row = []
-        for j in range(len(x)):
-            row.append(dLdx[i] * x[j])
-        W.append(row)
-    return W
+    return np.outer(dLdx, x)
             
 def gradient_descent(M, x, n):
-    for i in range(len(M)):
-        for j in range(len(x)):
-            M[i][j] = M[i][j] - (n * x[i][j])
-    return M
+    return M - (n * x)
 
 def gradient_descent_bias(b, x, n):
     if len(b) != len(x):
