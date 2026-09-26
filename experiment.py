@@ -37,7 +37,7 @@ for j in range(training_images):
     images.append(image)
     labels.append(label[0])
 
-x_train = np.array(images, dtype=np.float32) / 255
+x_train = np.frombuffer(b''.join(images), dtype=np.uint8).astype(np.float32) / 255
 
 n = 0.1
 
