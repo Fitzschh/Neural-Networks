@@ -38,6 +38,7 @@ for j in range(training_images):
     labels.append(label[0])
 
 x_train = np.frombuffer(b''.join(images), dtype=np.uint8).astype(np.float32) / 255
+x_train = x_train.reshape(training_images, 784)
 
 n = 0.1
 
@@ -64,10 +65,8 @@ for epoch in range(10):
         b3_gradient_list = []
 
         for i in batch_indices:
-
             target = label_to_vector(labels[i])
             #print(target)
-            pixels = list(images[i])
             inputs = x_train[i]
 
             dLdW, dLdb, dLdW2, dLdb2, dLdOL, dLdb3, loss = batch_gradient(M, b, M2, b2, OL, b3, inputs, labels[i], target, 1)
@@ -175,7 +174,7 @@ for i in range(num_of_images):
     #print(f"Actual label: {label}")
     pixels = list(image)
 
-    inputs = x_train[i] 
+    inputs = np.frombuffer(image, dtype=np.uint8).astype(np.float32) / 255
 
     p = predict(M, b, inputs, M2, b2, OL, b3)
     if p == label:
