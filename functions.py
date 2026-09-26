@@ -17,7 +17,7 @@ def logits(A, x, b):
     return Ax_b
 
 def activation(z):
-    return max(0, z)
+    return np.maximum(0, z)
 
 def softmax(x):
     exp_x = np.exp(x)
@@ -50,7 +50,7 @@ def gradient(dLdx, x):
     return np.outer(dLdx, x)
             
 def gradient_descent(M, x, n):
-    return M - (n * x)
+    return M - (n * np.asarray(x))
 
 def gradient_descent_bias(b, x, n):
     if len(b) != len(x):
@@ -84,5 +84,3 @@ def label_to_vector(label):
 
 
         
-
-

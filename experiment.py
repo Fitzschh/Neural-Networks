@@ -26,7 +26,7 @@ avg_loss = []
 accuracy_list = []
 training_times = []
 
-training_images = 60000
+training_images = 1000
 batch_size = 32
 
 for j in range(training_images):
@@ -41,7 +41,7 @@ n = 0.1
 
 training_start = time.perf_counter()
 
-for epoch in range(70):
+for epoch in range(10):
 
     total_loss = 0
 
@@ -189,6 +189,4 @@ for i in range(num_of_images):
 accuracy = (sum(correct_pred) / num_of_images) * 100
 accuracy_list.append(accuracy)
 print(f"Accuracy: {accuracy}%")
-
-
 
