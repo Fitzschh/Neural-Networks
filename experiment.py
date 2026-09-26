@@ -68,10 +68,7 @@ for epoch in range(10):
             target = label_to_vector(labels[i])
             #print(target)
             pixels = list(images[i])
-            inputs = []
-                    
-            for pixel in pixels:
-                inputs.append(pixel / 255)
+            inputs = x_train[i]
 
             dLdW, dLdb, dLdW2, dLdb2, dLdOL, dLdb3, loss = batch_gradient(M, b, M2, b2, OL, b3, inputs, labels[i], target, 1)
             total_loss += loss
@@ -167,7 +164,6 @@ correct_pred = []
 #Prediction Only
 num_of_images = 10000
 
-file3.seek(16)
 file4.seek(8)
 
 for i in range(num_of_images):
