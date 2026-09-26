@@ -4,6 +4,7 @@ from inputs import M, b, M2, b2, OL, b3, n
 import matplotlib.pyplot as plt
 import time
 import random
+import numpy as np
 
 random.seed(42)
 
@@ -36,6 +37,7 @@ for j in range(training_images):
     images.append(image)
     labels.append(label[0])
 
+x_train = np.array(images, dtype=np.float32) / 255
 
 n = 0.1
 
@@ -177,10 +179,7 @@ for i in range(num_of_images):
     #print(f"Actual label: {label}")
     pixels = list(image)
 
-    inputs = []
-
-    for pixel in pixels:
-        inputs.append(pixel / 255)
+    inputs = x_train[i] 
 
     p = predict(M, b, inputs, M2, b2, OL, b3)
     if p == label:
