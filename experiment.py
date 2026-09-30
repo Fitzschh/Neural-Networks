@@ -27,7 +27,7 @@ avg_loss = []
 accuracy_list = []
 training_times = []
 
-training_images = 1000
+training_images = 60000
 batch_size = 32
 
 for j in range(training_images):
@@ -44,7 +44,7 @@ n = 0.1
 
 training_start = time.perf_counter()
 
-for epoch in range(10):
+for epoch in range(20):
 
     total_loss = 0
 
