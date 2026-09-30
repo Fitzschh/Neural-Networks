@@ -79,69 +79,18 @@ for epoch in range(10):
             b3_gradient_list.append(dLdb3)
 
         #Averaging the gradients of W
-        avg_gradient_W = []
-
-        for row in range(128):
-
-            avg_row = []
-
-            for col in range(784):
-
-                gradient_sum = 0
-
-                for g in W_gradient_list:
-                    gradient_sum += g[row][col]
-
-                average = gradient_sum / len(W_gradient_list)
-
-                avg_row.append(average)
-
-            avg_gradient_W.append(avg_row)
+        avg_gradient_W = np.mean(W_gradient_list, axis=0)
 
         #Averaging the gradients of b
-        avg_gradient_b = [sum(g[i] for g in b_gradient_list) / len(b_gradient_list) for i in range(128)]
+        avg_gradient_b = np.mean(b_gradient_list, axis=0)
 
-        avg_gradient_W2 = []
+        avg_gradient_W2 = np.mean(W2_gradient_list, axis=0)
 
-        for row in range(64):
+        avg_gradient_b2 = np.mean(b2_gradient_list, axis=0)
 
-            avg_row = []
+        avg_gradient_OL = np.mean(OL_gradient_list, axis=0)
 
-            for col in range(128):
-
-                gradient_sum = 0
-
-                for g in W2_gradient_list:
-                    gradient_sum += g[row][col]
-
-                average = gradient_sum / len(W2_gradient_list)
-
-                avg_row.append(average)
-
-            avg_gradient_W2.append(avg_row)
-
-        avg_gradient_b2 = [sum(g[i] for g in b2_gradient_list) / len(b2_gradient_list) for i in range(64)]
-
-        avg_gradient_OL = []
-
-        for row in range(10):
-            
-            avg_row = []
-
-            for col in range(64):
-
-                gradient_sum = 0
-
-                for g in OL_gradient_list:
-                    gradient_sum += g[row][col]
-
-                average = gradient_sum / len(OL_gradient_list)
-
-                avg_row.append(average)
-
-            avg_gradient_OL.append(avg_row)
-
-        avg_gradient_b3 = [sum(g[i] for g in b3_gradient_list) / len(b3_gradient_list) for i in range(10)]
+        avg_gradient_b3 = np.mean(b3_gradient_list, axis=0)
 
         #Updating weights and biases
         M, b, M2, b2, OL, b3 = batch_descent(M, b, M2, b2, OL, b3, avg_gradient_W, avg_gradient_b, avg_gradient_W2, avg_gradient_b2, avg_gradient_OL, avg_gradient_b3, n)
