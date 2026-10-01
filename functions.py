@@ -52,6 +52,18 @@ def gradient(dLdx, x):
 def gradient_descent(M, x, n):
     return M - (n * np.asarray(x))
 
+#In commit 03df409, titled "Fixed subtle errors" the pure Python implementation shows:
+
+#def gradient_descent(M, x, n):
+#    for i in range(len(M)):
+#       for j in range(len(x)):
+#           M[i][j] = M[i][j] - (n * x[i][j])
+#    return M
+
+#The error shows that for j in range(len(x)) is looping through rows of x, which is (128, 784) in shape. Meaning j is only looping for 128 indices
+#Therefore the network was only able to update 128x128 worth of weights, not 128x784
+#The correct line should be: for j in range(len(M[i])). To loop through the contents of M[i] which would be 784. 
+
 def gradient_descent_bias(b, x, n):
     if len(b) != len(x):
         raise ValueError("Vectors must be of the same dimensions")
