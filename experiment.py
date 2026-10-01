@@ -22,10 +22,15 @@ data4 = file4.read(8)
 
 images = []
 labels = []
-epochs = []
+
 avg_loss = []
-accuracy_list = []
 training_times = []
+
+# Stores the epochs where accuracy was measured
+epoch_points = []
+
+# Stores accuracy measured at those epochs
+accuracy_list = []
 
 training_images = 60000
 batch_size = 32
@@ -37,18 +42,19 @@ for j in range(training_images):
     images.append(image)
     labels.append(label[0])
 
-x_train = np.frombuffer(b''.join(images), dtype=np.uint8).astype(np.float32) / 255
+x_train = np.frombuffer(b''.join(images),dtype=np.uint8).astype(np.float32) / 255
+
 x_train = x_train.reshape(training_images, 784)
 
 n = 0.1
 
 training_start = time.perf_counter()
 
-for epoch in range(26):
+for epoch in range(30):
 
     total_loss = 0
 
-    #Shuffling images and labels
+    # Shuffling images and labels
     indices = list(range(len(images)))
 
     random.shuffle(indices)
@@ -65,23 +71,28 @@ for epoch in range(26):
         b3_gradient_list = []
 
         for i in batch_indices:
+
             target = label_to_vector(labels[i])
-            #print(target)
+
             inputs = x_train[i]
 
             dLdW, dLdb, dLdW2, dLdb2, dLdOL, dLdb3, loss = batch_gradient(M, b, M2, b2, OL, b3, inputs, labels[i], target, 1)
+
             total_loss += loss
+
             W_gradient_list.append(dLdW)
             b_gradient_list.append(dLdb)
+
             W2_gradient_list.append(dLdW2)
             b2_gradient_list.append(dLdb2)
+
             OL_gradient_list.append(dLdOL)
             b3_gradient_list.append(dLdb3)
 
-        #Averaging the gradients of W
+        # Averaging the gradients of W
         avg_gradient_W = np.mean(W_gradient_list, axis=0)
 
-        #Averaging the gradients of b
+        # Averaging the gradients of b
         avg_gradient_b = np.mean(b_gradient_list, axis=0)
 
         avg_gradient_W2 = np.mean(W2_gradient_list, axis=0)
@@ -92,44 +103,57 @@ for epoch in range(26):
 
         avg_gradient_b3 = np.mean(b3_gradient_list, axis=0)
 
-        #Updating weights and biases
+        # Updating weights and biases
         M, b, M2, b2, OL, b3 = batch_descent(M, b, M2, b2, OL, b3, avg_gradient_W, avg_gradient_b, avg_gradient_W2, avg_gradient_b2, avg_gradient_OL, avg_gradient_b3, n)
 
+    # Learning-rate decay
     n = n * 0.95
 
     average_loss = total_loss / len(images)
 
     print(f"Epoch {epoch + 1} --- Average Loss: {average_loss}")
+
     avg_loss.append(average_loss)
-    epochs.append(epoch + 1)
+
+    if epoch + 1 >= 20:
+
+        correct_pred = []
+
+        num_of_images = 10000
+
+        file3.seek(16)
+        file4.seek(8)
+
+        for i in range(num_of_images):
+
+            image = file3.read(784)
+            label = file4.read(1)
+
+            label = label[0]
+
+            inputs = np.frombuffer(image, dtype=np.uint8).astype(np.float32) / 255
+
+            p = predict(M, b, inputs, M2, b2, OL, b3)
+
+            if p == label:
+                correct_pred.append(1)
+
+        accuracy = (sum(correct_pred) / num_of_images) * 100
+
+        epoch_points.append(epoch + 1)
+        accuracy_list.append(accuracy)
+
+        print(f"Accuracy after Epoch {epoch + 1}: {accuracy}%")
 
 training_time = time.perf_counter() - training_start
+
 training_times.append(training_time)
 
-print(f"Training time for {training_images} images: {training_time:.2f} seconds")
+print(f"Training time for {training_images} images over 30 epochs: {training_time:.2f} seconds")
 
-correct_pred = []
-#Prediction Only
-num_of_images = 10000
-
-file4.seek(8)
-
-for i in range(num_of_images):
-    image = file3.read(784)
-    label = file4.read(1)
-
-    label = label[0]
-    target = label_to_vector(label)
-    #print(f"Actual label: {label}")
-    pixels = list(image)
-
-    inputs = np.frombuffer(image, dtype=np.uint8).astype(np.float32) / 255
-
-    p = predict(M, b, inputs, M2, b2, OL, b3)
-    if p == label:
-        correct_pred.append(1)
-
-accuracy = (sum(correct_pred) / num_of_images) * 100
-accuracy_list.append(accuracy)
-print(f"Accuracy: {accuracy}%")
-
+# Plot Epoch vs Accuracy
+plt.plot(epoch_points, accuracy_list)
+plt.title("Epochs vs Accuracy for 60k Images Training")
+plt.xlabel("Epochs")
+plt.ylabel("Accuracy")
+plt.show()
