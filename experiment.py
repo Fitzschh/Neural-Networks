@@ -50,7 +50,7 @@ n = 0.1
 
 training_start = time.perf_counter()
 
-for epoch in range(150):
+for epoch in range(200):
 
     total_loss = 0
 
