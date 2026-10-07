@@ -107,7 +107,7 @@ for epoch in range(20):
         M, b, M2, b2, OL, b3 = batch_descent(M, b, M2, b2, OL, b3, avg_gradient_W, avg_gradient_b, avg_gradient_W2, avg_gradient_b2, avg_gradient_OL, avg_gradient_b3, n)
 
     # Learning-rate decay
-    #n = n * 0.95
+    n = n * 0.95
 
     average_loss = total_loss / len(images)
 
