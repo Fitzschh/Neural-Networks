@@ -65,11 +65,7 @@ def gradient_descent(M, x, n):
 #The correct line should be: for j in range(len(M[i])). To loop through the contents of M[i] which would be 784. 
 
 def gradient_descent_bias(b, x, n):
-    if len(b) != len(x):
-        raise ValueError("Vectors must be of the same dimensions")
-    for i in range(len(b)):
-        b[i] = b[i] - (n * x[i])
-    return b
+    return b - (n * np.asarray(x))
 
 #Inputs
 
