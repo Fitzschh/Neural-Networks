@@ -50,7 +50,7 @@ n = 0.1
 
 training_start = time.perf_counter()
 
-for epoch in range(20):
+for epoch in range(24):
 
     total_loss = 0
 
@@ -115,45 +115,34 @@ for epoch in range(20):
 
     avg_loss.append(average_loss)
 
-    if epoch + 1 >= 20:
+correct_pred = []
+#Prediction only
+num_of_images = 10000
 
-        correct_pred = []
+file4.seek(8)
 
-        num_of_images = 10000
+for i in range(num_of_images):
 
-        file3.seek(16)
-        file4.seek(8)
+    image = file3.read(784)
+    label = file4.read(1)
 
-        for i in range(num_of_images):
+    label = label[0]
 
-            image = file3.read(784)
-            label = file4.read(1)
+    inputs = np.frombuffer(image, dtype=np.uint8).astype(np.float32) / 255
 
-            label = label[0]
+    p = predict(M, b, inputs, M2, b2, OL, b3)
 
-            inputs = np.frombuffer(image, dtype=np.uint8).astype(np.float32) / 255
+    if p == label:
+        correct_pred.append(1)
 
-            p = predict(M, b, inputs, M2, b2, OL, b3)
+    accuracy = (sum(correct_pred) / num_of_images) * 100
 
-            if p == label:
-                correct_pred.append(1)
-
-        accuracy = (sum(correct_pred) / num_of_images) * 100
-
-        epoch_points.append(epoch + 1)
-        accuracy_list.append(accuracy)
-
-        print(f"Accuracy after Epoch {epoch + 1}: {accuracy}%")
+accuracy = (sum(correct_pred) / num_of_images) * 100
 
 training_time = time.perf_counter() - training_start
 
 training_times.append(training_time)
 
-print(f"Training time for {training_images} images over 30 epochs: {training_time:.2f} seconds")
+print(f"Training time for {training_images} images over {epoch + 1} epochs: {training_time:.2f} seconds")
+print(f"Accuracy: {accuracy:.2f}%")
 
-# Plot Epoch vs Accuracy
-plt.plot(epoch_points, accuracy_list)
-plt.title("Epochs vs Accuracy for 60k Images Training")
-plt.xlabel("Epochs")
-plt.ylabel("Accuracy")
-plt.show()
