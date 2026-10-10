@@ -10,4 +10,8 @@ def save_model(M, b, M2, b2, OL, b3, model_name):
 
     np.savetxt(os.path.join(model_path, "M.csv"), M, delimiter=",")
 
+    np.savetxt(os.path.join(model_path, "b.csv"), b, delimiter=",")
+
+    np.savetxt(os.path.join(model_path, "M2.csv"), M2, delimiter=",")
+
     
