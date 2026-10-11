@@ -20,3 +20,22 @@ def save_model(M, b, M2, b2, OL, b3, model_name):
 
     np.savetxt(os.path.join(model_path, "b3.csv"), b3, delimiter=",")
 
+def load_model(model_name):
+
+    model_path = os.path.join("models", model_name)
+
+    M = np.loadtxt(os.path.join(model_path, "M.csv"), delimiter=",")
+
+    b = np.loadtxt(os.path.join(model_path, "b.csv"), delimiter=",")
+
+    M2 = np.loadtxt(os.path.join(model_path, "M2.csv"), delimiter=",")
+
+    b2 = np.loadtxt(os.path.join(model_path, "b2.csv"), delimiter=",")
+
+    OL = np.loadtxt(os.path.join(model_path, "OL.csv"), delimiter=",")
+
+    b3 = np.loadtxt(os.path.join(model_path, "b3.csv"), delimiter=",")
+
+    return M, b, M2, b2, OL, b3
+
+
