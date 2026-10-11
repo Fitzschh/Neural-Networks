@@ -152,6 +152,7 @@ while True:
     if choice == "y":
         model_name = input("Enter model name: ")
         save_model(M, b, M2, b2, OL, b3, model_name)
+        break
     elif choice == "n":
         break
     else:
