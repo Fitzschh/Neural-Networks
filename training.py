@@ -75,7 +75,7 @@ def predict(M, b, input, M2, b2, OL, b3):
     int_pred = max(y)
     for i in range(len(y)):
         if y[i] == int_pred:
-            pred = i
+            pred = y[i]
 
     #print(y)
     return pred
