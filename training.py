@@ -78,7 +78,7 @@ def predict(M, b, input, M2, b2, OL, b3):
             pred = i
 
     #print(y)
-    return pred
+    return pred, y #Temporary change for testing purposes. 
 
 def save_model():
     pass

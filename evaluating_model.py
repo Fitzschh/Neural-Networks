@@ -6,6 +6,8 @@ input = image_to_vector("images/sample_image_blank.jpeg")
 
 M, b, M2, b2, OL, b3 = load_model("model2.0")
 
-pred = predict(M, b, input, M2, b2, OL, b3)
+pred, y = predict(M, b, input, M2, b2, OL, b3)
 print(f"Prediction: {pred}")
+print(f"Probabilities: {y}")
+
 
