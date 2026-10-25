@@ -66,9 +66,13 @@ for epoch in range(24):
 
         inputs = x_train[batch_indices]
 
+        batch_labels = labels[batch_indices]
+
         z = inputs @ M.T + b
 
-        
+        target = np.zeros((batch_size, 10))
+        target[np.arange(batch_size), batch_labels] = 1
+
     # Learning-rate decay
     #n = n * 0.95
 
