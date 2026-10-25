@@ -1,4 +1,4 @@
-from functions import image_to_vector, label_to_vector
+from functions import image_to_vector, label_to_vector, activation
 from training import save_model, train, predict, batch_gradient, batch_descent
 from inputs import M, b, M2, b2, OL, b3, n
 from model_io import save_model, load_model
@@ -68,10 +68,20 @@ for epoch in range(24):
 
         batch_labels = labels[batch_indices]
 
-        z = inputs @ M.T + b
-
         target = np.zeros((batch_size, 10))
         target[np.arange(batch_size), batch_labels] = 1
+
+        z = inputs @ M.T + b
+
+        a = activation(z)
+
+        z2 = a @ M2.T + b2
+
+        a2 = activation(z2)
+
+        z3 = a2 @ OL.T + b3
+        
+
 
     # Learning-rate decay
     #n = n * 0.95
