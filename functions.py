@@ -24,6 +24,12 @@ def softmax(x):
     sum_exp_x = np.sum(exp_x)
     return exp_x / sum_exp_x
 
+def batch_softmax(x):
+    exp_x = np.exp(x)
+    sum_exp_x = np.sum(exp_x, axis=1, keepdims=True)
+    return exp_x / sum_exp_x
+
+
 def cross_entropy_loss(pred, target):
     return -math.log(pred[target])
 

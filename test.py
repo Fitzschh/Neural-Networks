@@ -1,4 +1,4 @@
-from functions import image_to_vector, label_to_vector, activation
+from functions import image_to_vector, label_to_vector, activation, batch_softmax
 from training import save_model, train, predict, batch_gradient, batch_descent
 from inputs import M, b, M2, b2, OL, b3, n
 from model_io import save_model, load_model
@@ -80,6 +80,8 @@ for epoch in range(24):
         a2 = activation(z2)
 
         z3 = a2 @ OL.T + b3
+
+        y = batch_softmax(z3)
         
 
 
