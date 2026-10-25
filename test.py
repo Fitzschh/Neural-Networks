@@ -82,8 +82,12 @@ for epoch in range(24):
         z3 = a2 @ OL.T + b3
 
         y = batch_softmax(z3)
-        
 
+        correct_prob = y[np.arange(batch_size), batch_labels]
+
+        batch_loss = -np.sum(np.log(correct_prob + 1e-12))
+
+        total_loss += batch_loss
 
     # Learning-rate decay
     #n = n * 0.95
