@@ -1,4 +1,4 @@
-from functions import image_to_vector, label_to_vector, activation, batch_softmax
+from functions import image_to_vector, label_to_vector, activation, batch_softmax, softmax
 from training import save_model, train, predict, batch_gradient, batch_descent
 from inputs import M, b, M2, b2, OL, b3, n
 from model_io import save_model, load_model
@@ -46,6 +46,8 @@ for j in range(training_images):
 x_train = np.frombuffer(b''.join(images),dtype=np.uint8).astype(np.float32) / 255
 
 x_train = x_train.reshape(training_images, 784)
+
+labels = np.array(labels)
 
 n = 0.1
 
@@ -125,7 +127,7 @@ for epoch in range(24):
         b3 = b3 - n * dLdb3
 
     # Learning-rate decay
-    #n = n * 0.95
+    n = n * 0.95
 
     average_loss = total_loss / len(images)
 
@@ -158,7 +160,7 @@ for i in range(num_of_images):
     
     z3 = a2 @ OL.T + b3
     
-    y = batch_softmax(z3)
+    y = softmax(z3)
 
     prediction = np.argmax(y)
 
