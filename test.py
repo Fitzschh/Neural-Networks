@@ -89,6 +89,34 @@ for epoch in range(24):
 
         total_loss += batch_loss
 
+        dLdz3 = y - target
+
+        dLdz3 = dLdz3 / batch_size
+
+        dLdOL = dLdz3.T @ a2
+
+        dLdb3 = np.sum(dLdz3, axis=0)
+
+        dLda2 = dLdz3 @ OL
+
+        da2dz2 = (z2 > 0).astype(float)
+
+        dLdz2 = dLda2 * da2dz2
+
+        dLdM2 = dLdz2.T @ a
+
+        dLdb2 = np.sum(dLdz2, axis=0)
+
+        dLda = dLdz2 @ M2
+
+        dadz = (z > 0).astype(float)
+
+        dLdz = dLda * dadz
+
+        dLdM = dLdz.T @ inputs
+
+        dLdb = np.sum(dLdz, axis=0)
+
     # Learning-rate decay
     #n = n * 0.95
 
