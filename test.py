@@ -148,12 +148,22 @@ for i in range(num_of_images):
 
     inputs = np.frombuffer(image, dtype=np.uint8).astype(np.float32) / 255
 
-    p = predict(M, b, inputs, M2, b2, OL, b3)
+    z = inputs @ M.T + b
+    
+    a = activation(z)
+    
+    z2 = a @ M2.T + b2
+    
+    a2 = activation(z2)
+    
+    z3 = a2 @ OL.T + b3
+    
+    y = batch_softmax(z3)
 
-    if p == label:
+    prediction = np.argmax(y)
+
+    if prediction == label:
         correct_pred.append(1)
-
-    accuracy = (sum(correct_pred) / num_of_images) * 100
 
 accuracy = (sum(correct_pred) / num_of_images) * 100
 
