@@ -187,4 +187,5 @@ while True:
     else:
         print("Invalid input")
 
-        
+#MacBook Air M1 training time testing
+
