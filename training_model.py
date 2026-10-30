@@ -34,7 +34,7 @@ epoch_points = []
 accuracy_list = []
 
 training_images = 60000
-batch_size = 50
+batch_size = 100
 
 for j in range(training_images):
     image = file.read(784)
