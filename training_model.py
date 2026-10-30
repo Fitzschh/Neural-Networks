@@ -1,4 +1,4 @@
-from functions import image_to_vector, label_to_vector
+from functions import image_to_vector, label_to_vector, activation, batch_softmax, softmax
 from training import save_model, train, predict, batch_gradient, batch_descent
 from inputs import M, b, M2, b2, OL, b3, n
 from model_io import save_model, load_model
@@ -34,7 +34,7 @@ epoch_points = []
 accuracy_list = []
 
 training_images = 60000
-batch_size = 32
+batch_size = 50
 
 for j in range(training_images):
     image = file.read(784)
@@ -46,6 +46,8 @@ for j in range(training_images):
 x_train = np.frombuffer(b''.join(images),dtype=np.uint8).astype(np.float32) / 255
 
 x_train = x_train.reshape(training_images, 784)
+
+labels = np.array(labels)
 
 n = 0.1
 
@@ -64,51 +66,68 @@ for epoch in range(24):
 
         batch_indices = indices[start:start + batch_size]
 
-        W_gradient_list = []
-        b_gradient_list = []
-        W2_gradient_list = []
-        b2_gradient_list = []
-        OL_gradient_list = []
-        b3_gradient_list = []
+        inputs = x_train[batch_indices]
 
-        for i in batch_indices:
+        batch_labels = labels[batch_indices]
 
-            target = label_to_vector(labels[i])
+        target = np.zeros((batch_size, 10))
+        target[np.arange(batch_size), batch_labels] = 1
 
-            inputs = x_train[i]
+        z = inputs @ M.T + b
 
-            dLdW, dLdb, dLdW2, dLdb2, dLdOL, dLdb3, loss = batch_gradient(M, b, M2, b2, OL, b3, inputs, labels[i], target, 1)
+        a = activation(z)
 
-            total_loss += loss
+        z2 = a @ M2.T + b2
 
-            W_gradient_list.append(dLdW)
-            b_gradient_list.append(dLdb)
+        a2 = activation(z2)
 
-            W2_gradient_list.append(dLdW2)
-            b2_gradient_list.append(dLdb2)
+        z3 = a2 @ OL.T + b3
 
-            OL_gradient_list.append(dLdOL)
-            b3_gradient_list.append(dLdb3)
+        y = batch_softmax(z3)
 
-        # Averaging the gradients of W
-        avg_gradient_W = np.mean(W_gradient_list, axis=0)
+        correct_prob = y[np.arange(batch_size), batch_labels]
 
-        # Averaging the gradients of b
-        avg_gradient_b = np.mean(b_gradient_list, axis=0)
+        batch_loss = -np.sum(np.log(correct_prob + 1e-12))
 
-        avg_gradient_W2 = np.mean(W2_gradient_list, axis=0)
+        total_loss += batch_loss
 
-        avg_gradient_b2 = np.mean(b2_gradient_list, axis=0)
+        dLdz3 = y - target
 
-        avg_gradient_OL = np.mean(OL_gradient_list, axis=0)
+        dLdz3 = dLdz3 / batch_size
 
-        avg_gradient_b3 = np.mean(b3_gradient_list, axis=0)
+        dLdOL = dLdz3.T @ a2
 
-        # Updating weights and biases
-        M, b, M2, b2, OL, b3 = batch_descent(M, b, M2, b2, OL, b3, avg_gradient_W, avg_gradient_b, avg_gradient_W2, avg_gradient_b2, avg_gradient_OL, avg_gradient_b3, n)
+        dLdb3 = np.sum(dLdz3, axis=0)
+
+        dLda2 = dLdz3 @ OL
+
+        da2dz2 = (z2 > 0).astype(float)
+
+        dLdz2 = dLda2 * da2dz2
+
+        dLdM2 = dLdz2.T @ a
+
+        dLdb2 = np.sum(dLdz2, axis=0)
+
+        dLda = dLdz2 @ M2
+
+        dadz = (z > 0).astype(float)
+
+        dLdz = dLda * dadz
+
+        dLdM = dLdz.T @ inputs
+
+        dLdb = np.sum(dLdz, axis=0)
+
+        M = M - n * dLdM
+        b = b - n * dLdb
+        M2 = M2 - n * dLdM2
+        b2 = b2 - n * dLdb2
+        OL = OL - n * dLdOL
+        b3 = b3 - n * dLdb3
 
     # Learning-rate decay
-    #n = n * 0.95
+    n = n * 0.95
 
     average_loss = total_loss / len(images)
 
@@ -131,12 +150,22 @@ for i in range(num_of_images):
 
     inputs = np.frombuffer(image, dtype=np.uint8).astype(np.float32) / 255
 
-    p = predict(M, b, inputs, M2, b2, OL, b3)
+    z = inputs @ M.T + b
+    
+    a = activation(z)
+    
+    z2 = a @ M2.T + b2
+    
+    a2 = activation(z2)
+    
+    z3 = a2 @ OL.T + b3
+    
+    y = softmax(z3)
 
-    if p == label:
+    prediction = np.argmax(y)
+
+    if prediction == label:
         correct_pred.append(1)
-
-    accuracy = (sum(correct_pred) / num_of_images) * 100
 
 accuracy = (sum(correct_pred) / num_of_images) * 100
 
@@ -157,5 +186,3 @@ while True:
         break
     else:
         print("Invalid input")
-
-        
