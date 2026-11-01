@@ -34,7 +34,7 @@ epoch_points = []
 accuracy_list = []
 
 training_images = 60000
-batch_size = 24
+batch_size = 16
 
 for j in range(training_images):
     image = file.read(784)
@@ -137,8 +137,10 @@ for epoch in range(24):
         b = b - n * dLdb
         M2 = M2 - n * dLdM2
         b2 = b2 - n * dLdb2
-        OL = OL - n * dLdOL
+        M3 = M3 - n * dLdM3
         b3 = b3 - n * dLdb3
+        OL = OL - n * dLdOL
+        b4 = b4 - n * dLdb4
 
     # Learning-rate decay
     n = n * 0.98
@@ -198,7 +200,7 @@ while True:
     choice = input("Save trained model? (y/n): ").lower()
     if choice == "y":
         model_name = input("Enter model name: ")
-        save_model(M, b, M2, b2, OL, b3, model_name)
+        save_model(M, b, M2, b2, M3, b3, OL, b4, model_name)
         break
     elif choice == "n":
         break
