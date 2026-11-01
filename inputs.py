@@ -40,7 +40,7 @@ OL = []
 
 for i in range(10):
     row = []
-    for j in range(64):
+    for j in range(32):
         row.append(random.uniform(-0.05, 0.05))
 
     OL.append(row)

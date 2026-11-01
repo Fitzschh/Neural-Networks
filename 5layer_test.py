@@ -1,6 +1,6 @@
 from functions import image_to_vector, label_to_vector, activation, batch_softmax, softmax
 from training import save_model, train, predict, batch_gradient, batch_descent
-from inputs import M, b, M2, b2, OL, b3, n
+from inputs import M, b, M2, b2, M3, b3, OL, b4, n
 from model_io import save_model, load_model
 import matplotlib.pyplot as plt
 import time
@@ -81,9 +81,13 @@ for epoch in range(28):
 
         a2 = activation(z2)
 
-        z3 = a2 @ OL.T + b3
+        z3 = a2 @ M3.T + b3
 
-        y = batch_softmax(z3)
+        a3 = activation(z3)
+
+        z4 = a3 @ OL.T + b4
+
+        y = batch_softmax(z4)
 
         correct_prob = y[np.arange(batch_size), batch_labels]
 
@@ -91,15 +95,25 @@ for epoch in range(28):
 
         total_loss += batch_loss
 
-        dLdz3 = y - target
+        dLdz4 = y - target
 
-        dLdz3 = dLdz3 / batch_size
+        dLdz4 = dLdz4 / batch_size
 
-        dLdOL = dLdz3.T @ a2
+        dLdOL = dLdz4.T @ a3
+
+        dLdb4 = np.sum(dLdz4, axis=0)
+
+        dLda3 = dLdz4 @ OL
+
+        da3dz3 = (z3 > 0).astype(float)
+
+        dLdz3 = dLda3 * da3dz3
+
+        dLdM3 = dLdz3.T @ a2
 
         dLdb3 = np.sum(dLdz3, axis=0)
 
-        dLda2 = dLdz3 @ OL
+        dLda2 = dLdz3 @ M3
 
         da2dz2 = (z2 > 0).astype(float)
 
@@ -158,9 +172,13 @@ for i in range(num_of_images):
     
     a2 = activation(z2)
     
-    z3 = a2 @ OL.T + b3
+    z3 = a2 @ M3.T + b3
+
+    a3 = activation(z3)
+
+    z4 = a3 @ OL.T + b4
     
-    y = softmax(z3)
+    y = softmax(z4)
 
     prediction = np.argmax(y)
 
