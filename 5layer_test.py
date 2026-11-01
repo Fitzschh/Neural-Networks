@@ -53,7 +53,7 @@ n = 0.0999999
 
 training_start = time.perf_counter()
 
-for epoch in range(28):
+for epoch in range(24):
 
     total_loss = 0
 
