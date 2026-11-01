@@ -1,7 +1,7 @@
 import os
 import numpy as np
 
-
+#4 Layer model
 def save_model(M, b, M2, b2, OL, b3, model_name):
 
     model_path = os.path.join("models", model_name)
@@ -38,4 +38,47 @@ def load_model(model_name):
 
     return M, b, M2, b2, OL, b3
 
+#5 Layer model
+def five_layer_save_model(M, b, M2, b2, M3, b3, OL, b4, model_name):
 
+    model_path = os.path.join("models", model_name)
+
+    os.makedirs(model_path, exist_ok=True)
+
+    np.savetxt(os.path.join(model_path, "M.csv"), M, delimiter=",")
+
+    np.savetxt(os.path.join(model_path, "b.csv"), b, delimiter=",")
+
+    np.savetxt(os.path.join(model_path, "M2.csv"), M2, delimiter=",")
+
+    np.savetxt(os.path.join(model_path, "b2.csv"), b2, delimiter=",")
+
+    np.savetxt(os.path.join(model_path, "M3.csv"), M3, delimiter=",")
+
+    np.savetxt(os.path.join(model_path, "b3.csv"), b3, delimiter=",")
+
+    np.savetxt(os.path.join(model_path, "OL.csv"), OL, delimiter=",")
+
+    np.savetxt(os.path.join(model_path, "b4.csv"), b4, delimiter=",")
+
+def five_layer_load_model(model_name):
+
+    model_path = os.path.join("models", model_name)
+
+    M = np.loadtxt(os.path.join(model_path, "M.csv"), delimiter=",")
+
+    b = np.loadtxt(os.path.join(model_path, "b.csv"), delimiter=",")
+
+    M2 = np.loadtxt(os.path.join(model_path, "M2.csv"), delimiter=",")
+
+    b2 = np.loadtxt(os.path.join(model_path, "b2.csv"), delimiter=",")
+
+    M3 = np.loadtxt(os.path.join(model_path, "M3.csv"), delimiter=",")
+
+    b3 = np.loadtxt(os.path.join(model_path, "b3.csv"), delimiter=",")
+
+    OL = np.loadtxt(os.path.join(model_path, "OL.csv"), delimiter=",")
+
+    b4 = np.loadtxt(os.path.join(model_path, "b4.csv"), delimiter=",")
+
+    return M, b, M2, b2, M3, b3, OL, b4

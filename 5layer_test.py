@@ -1,7 +1,7 @@
 from functions import image_to_vector, label_to_vector, activation, batch_softmax, softmax
 from training import save_model, train, predict, batch_gradient, batch_descent
 from inputs import M, b, M2, b2, M3, b3, OL, b4, n
-from model_io import save_model, load_model
+from model_io import save_model, load_model, five_layer_save_model
 import matplotlib.pyplot as plt
 import time
 import random
@@ -34,7 +34,7 @@ epoch_points = []
 accuracy_list = []
 
 training_images = 60000
-batch_size = 16
+batch_size = 12
 
 for j in range(training_images):
     image = file.read(784)
@@ -200,7 +200,7 @@ while True:
     choice = input("Save trained model? (y/n): ").lower()
     if choice == "y":
         model_name = input("Enter model name: ")
-        save_model(M, b, M2, b2, M3, b3, OL, b4, model_name)
+        five_layer_save_model(M, b, M2, b2, M3, b3, OL, b4, model_name)
         break
     elif choice == "n":
         break
