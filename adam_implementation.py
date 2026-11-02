@@ -51,6 +51,7 @@ labels = np.array(labels)
 
 n = 0.0999999
 beta1 = 0.9
+beta2 = 0.999
 
 m_M = np.zeros_like(M)
 m_b = np.zeros_like(b)
