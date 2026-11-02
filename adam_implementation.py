@@ -143,6 +143,13 @@ for epoch in range(24):
         m_OL = beta1 * m_OL + (1 - beta1) * dLdOL
         m_b3 = beta1 * m_b3 + (1 - beta1) * dLdb3
 
+        v_M = beta2 * v_M + (1 - beta2) * (dLdM ** 2)
+        v_b = beta2 * v_b + (1 - beta2) * (dLdb ** 2)
+        v_M2 = beta2 * v_M2 + (1 - beta2) * (dLdM2 ** 2)
+        v_b2 = beta2 * v_b2 + (1 - beta2) * (dLdb2 ** 2)
+        v_OL = beta2 * v_OL + (1 - beta2) * (dLdOL ** 2)
+        v_b3 = beta2 * v_b3 + (1 - beta2) * (dLdb3 ** 2)
+
         M = M - n * dLdM
         b = b - n * dLdb
         M2 = M2 - n * dLdM2
