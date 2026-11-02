@@ -127,12 +127,21 @@ for epoch in range(24):
 
         dLdb = np.sum(dLdz, axis=0)
 
+        m_M = beta1 * m_M + (1 - beta1) * dLdM
+        m_b = beta1 * m_b + (1 - beta1) * dLdb
+        m_M2 = beta1 * m_M2 + (1 - beta1) * dLdM2
+        m_b2 = beta1 * m_b2 + (1 - beta1) * dLdb2
+        m_OL = beta1 * m_OL + (1 - beta1) * dLdOL
+        m_b3 = beta1 * m_b3 + (1 - beta1) * dLdb3
+
         M = M - n * dLdM
         b = b - n * dLdb
         M2 = M2 - n * dLdM2
         b2 = b2 - n * dLdb2
         OL = OL - n * dLdOL
         b3 = b3 - n * dLdb3
+
+
 
     # Learning-rate decay
     #n = n * 0.98
