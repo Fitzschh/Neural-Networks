@@ -60,6 +60,14 @@ m_b2 = np.zeros_like(b2)
 m_OL = np.zeros_like(OL)
 m_b3 = np.zeros_like(b3)
 
+v_M = np.zeros_like(M)
+v_b = np.zeros_like(b)
+v_M2 = np.zeros_like(M2)
+v_b2 = np.zeros_like(b2)
+v_OL = np.zeros_like(OL)
+v_b3 = np.zeros_like(b3)
+
+
 training_start = time.perf_counter()
 
 for epoch in range(24):
