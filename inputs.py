@@ -27,7 +27,7 @@ M2 = np.array(M2)
 
 M3 = []
 
-for i in range(32):
+for i in range(64):
     row = []
     for j in range(64):
         row.append(random.uniform(-0.05, 0.05))
@@ -40,7 +40,7 @@ OL = []
 
 for i in range(10):
     row = []
-    for j in range(32):
+    for j in range(64):
         row.append(random.uniform(-0.05, 0.05))
 
     OL.append(row)
@@ -63,7 +63,7 @@ b2 = np.array(b2)
 
 b3 = []
 
-for i in range(32):
+for i in range(64):
     b3.append(random.uniform(-0.05, 0.05))
 
 b3 = np.array(b3)
