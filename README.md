@@ -1,4 +1,5 @@
-# MNIST Neural Networks from First Principles: Mathematical Foundations, Implementation, and Computational Analysis
+# MNIST Neural Networks from First Principles
+### Mathematical Foundations, Implementation, and Computational Analysis
 
 ## To derive the foundational blocks and pieces of a neural network by deriving from first mathematical principles, build from the ground up using pure Python without using PyTorch and TensorFlow. 
 
