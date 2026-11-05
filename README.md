@@ -7,7 +7,7 @@
 ## Overview
 ### Motivation
 
-As the exponential growth of Artificial Intelligence and Machine Learning introduced more abstractions towards the field, the field slowly becomes too complicated to understand and people may give up trying to understand AI/ML and simply accept it as it is.
+The increasing accessibility of machine learning frameworks has significantly simplified the implementation of neural networks. However, these abstractions can obscure the underlying mathematical operations, particularly for individuals attempting to understand how neural networks learn and optimize their parameters.
 
 ### Methodology
 
