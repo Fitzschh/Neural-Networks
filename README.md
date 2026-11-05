@@ -21,6 +21,7 @@ The project serves as a tangible output while learning the fundamental mathemati
 
 The project also encourages the use and need for low level implementations of several functions, such as a summation function made with pure python, or the crucial mathematical functions used in Machine Learning, such as the dot product, softmax and more.
 
+## Neural Network Architecture
 
-
+![Neural Network Architecture](assets/neural-network.jpeg)
 
