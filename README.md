@@ -25,3 +25,7 @@ The project also encourages the use and need for low level implementations of se
 
 ![Neural Network Architecture](assets/neural-network.jpeg)
 
+### 4 Layered Neural Network
+
+This design is suitable enough for a MNIST Handwritten Digit Classifier Network. The whole purpose of the project is to learn the core ideas or the fundamental mathematics of a neural network.
+
