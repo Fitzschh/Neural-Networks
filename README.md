@@ -29,3 +29,11 @@ The project also encourages the use and need for low level implementations of se
 
 This design is suitable enough for a MNIST Handwritten Digit Classifier Network. The whole purpose of the project is to learn the core ideas or the fundamental mathematics of a neural network.
 
+## Mathematical Principles
+
+### Linear Algebra
+
+In programming, linear algebra has been widely used especially with game development. What actually is the difference between linear algebra and the traditional and usual algebra we learned during high school and college? And why do we need this for Artificial Intelligence as well?
+
+The core idea is that the algebra we know only solves one problem at a time. What makes linear algebra so special is that it allows multiple calculations to happen all at once. And since we are dealing with multivariable problems when it comes to game development or artificial intelligence, linear algebra is crucial in these cases.
+
