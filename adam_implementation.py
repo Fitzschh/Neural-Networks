@@ -50,7 +50,7 @@ x_train = x_train.reshape(training_images, 784)
 labels = np.array(labels)
 
 n = 0.0999999
-beta1 = 0.85
+beta1 = 0.75
 beta2 = 0.999
 
 m_M = np.zeros_like(M)
