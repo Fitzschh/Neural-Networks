@@ -158,7 +158,7 @@ for epoch in range(24):
         b3 = b3 - n * m_b3
 
     # Learning-rate decay
-    n = n * 0.9775
+    n = n * 0.975
 
     average_loss = total_loss / len(images)
 
