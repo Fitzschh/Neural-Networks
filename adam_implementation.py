@@ -34,7 +34,7 @@ epoch_points = []
 accuracy_list = []
 
 training_images = 60000
-batch_size = 12
+batch_size = 16
 
 for j in range(training_images):
     image = file.read(784)
@@ -158,7 +158,7 @@ for epoch in range(24):
         b3 = b3 - n * m_b3
 
     # Learning-rate decay
-    n = n * 0.98
+    n = n * 0.95
 
     average_loss = total_loss / len(images)
 
