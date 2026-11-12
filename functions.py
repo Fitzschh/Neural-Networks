@@ -20,12 +20,15 @@ def activation(z):
     return np.maximum(0, z)
 
 def softmax(x):
-    exp_x = np.exp(x)
+    shifted_x = x - np.max(x)
+    exp_x = np.exp(shifted_x)
     sum_exp_x = np.sum(exp_x)
     return exp_x / sum_exp_x
 
 def batch_softmax(x):
-    exp_x = np.exp(x)
+    max_x = np.max(x, axis=1, keepdims=True)
+    shifted_x = x - max_x
+    exp_x = np.exp(shifted_x)
     sum_exp_x = np.sum(exp_x, axis=1, keepdims=True)
     return exp_x / sum_exp_x
 
