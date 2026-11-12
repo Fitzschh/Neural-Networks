@@ -49,7 +49,7 @@ x_train = x_train.reshape(training_images, 784)
 
 labels = np.array(labels)
 
-n = 0.0999999
+n = 0.1
 beta1 = 0.75
 beta2 = 0.999
 
@@ -158,7 +158,7 @@ for epoch in range(24):
         b3 = b3 - n * m_b3
 
     # Learning-rate decay
-    n = n * 0.9725
+    n = n * 0.98
 
     average_loss = total_loss / len(images)
 
