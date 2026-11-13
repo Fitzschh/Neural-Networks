@@ -34,7 +34,7 @@ epoch_points = []
 accuracy_list = []
 
 training_images = 60000
-batch_size = 24
+batch_size = 12
 
 for j in range(training_images):
     image = file.read(784)
@@ -49,7 +49,7 @@ x_train = x_train.reshape(training_images, 784)
 
 labels = np.array(labels)
 
-n = 0.00999999
+n = 0.01
 beta1 = 0.9
 beta2 = 0.999
 
