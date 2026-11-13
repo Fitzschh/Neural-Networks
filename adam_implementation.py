@@ -70,7 +70,7 @@ v_b3 = np.zeros_like(b3)
 
 training_start = time.perf_counter()
 
-for epoch in range(24):
+for epoch in range(20):
 
     total_loss = 0
 
@@ -153,7 +153,7 @@ for epoch in range(24):
         b3 = b3 - n * m_b3
 
     # Learning-rate decay
-    #n = n * 0.985
+    n = n * 0.985
 
     average_loss = total_loss / len(images)
 
