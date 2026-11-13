@@ -34,7 +34,14 @@ epoch_points = []
 accuracy_list = []
 
 training_images = 60000
-batch_size = 32
+batch_size = 12
+
+for j in range(training_images):
+    image = file.read(784)
+    label = file2.read(1)
+
+    images.append(image)
+    labels.append(label[0])
 
 x_train = np.frombuffer(b''.join(images),dtype=np.uint8).astype(np.float32) / 255
 
@@ -159,7 +166,8 @@ for epoch in range(200):
         correct_pred = []
         #Prediction only
         num_of_images = 10000
-    
+
+        file3.seek(16)
         file4.seek(8)
     
         for i in range(num_of_images):
