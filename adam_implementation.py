@@ -49,7 +49,7 @@ x_train = x_train.reshape(training_images, 784)
 
 labels = np.array(labels)
 
-n = 0.009
+n = 0.00999999
 beta1 = 0.9
 beta2 = 0.999
 
