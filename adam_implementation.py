@@ -34,7 +34,7 @@ epoch_points = []
 accuracy_list = []
 
 training_images = 60000
-batch_size = 16
+batch_size = 12
 
 for j in range(training_images):
     image = file.read(784)
@@ -49,8 +49,8 @@ x_train = x_train.reshape(training_images, 784)
 
 labels = np.array(labels)
 
-n = 0.0999999
-beta1 = 0.75
+n = 0.01
+beta1 = 0.9
 beta2 = 0.999
 
 m_M = np.zeros_like(M)
@@ -70,7 +70,7 @@ v_b3 = np.zeros_like(b3)
 
 training_start = time.perf_counter()
 
-for epoch in range(24):
+for epoch in range(35):
 
     total_loss = 0
 
@@ -136,19 +136,14 @@ for epoch in range(24):
 
         dLdb = np.sum(dLdz, axis=0)
 
-        m_M = beta1 * m_M + (1 - beta1) * dLdM
-        m_b = beta1 * m_b + (1 - beta1) * dLdb
-        m_M2 = beta1 * m_M2 + (1 - beta1) * dLdM2
-        m_b2 = beta1 * m_b2 + (1 - beta1) * dLdb2
-        m_OL = beta1 * m_OL + (1 - beta1) * dLdOL
-        m_b3 = beta1 * m_b3 + (1 - beta1) * dLdb3
+        #Actual SGD with momentum mathematics
 
-        v_M = beta2 * v_M + (1 - beta2) * (dLdM ** 2)
-        v_b = beta2 * v_b + (1 - beta2) * (dLdb ** 2)
-        v_M2 = beta2 * v_M2 + (1 - beta2) * (dLdM2 ** 2)
-        v_b2 = beta2 * v_b2 + (1 - beta2) * (dLdb2 ** 2)
-        v_OL = beta2 * v_OL + (1 - beta2) * (dLdOL ** 2)
-        v_b3 = beta2 * v_b3 + (1 - beta2) * (dLdb3 ** 2)
+        m_M = beta1 * m_M + dLdM
+        m_b = beta1 * m_b + dLdb
+        m_M2 = beta1 * m_M2 + dLdM2
+        m_b2 = beta1 * m_b2 + dLdb2
+        m_OL = beta1 * m_OL + dLdOL
+        m_b3 = beta1 * m_b3 + dLdb3
 
         M = M - n * m_M
         b = b - n * m_b
@@ -158,7 +153,7 @@ for epoch in range(24):
         b3 = b3 - n * m_b3
 
     # Learning-rate decay
-    n = n * 0.96
+    n = n * 0.985
 
     average_loss = total_loss / len(images)
 
