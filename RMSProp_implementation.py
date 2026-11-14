@@ -52,6 +52,7 @@ labels = np.array(labels)
 n = 0.01
 beta1 = 0.9
 beta2 = 0.999
+epsilon = 1e-8
 
 m_M = np.zeros_like(M)
 m_b = np.zeros_like(b)
@@ -145,12 +146,12 @@ for epoch in range(35):
         v_OL = beta1 * v_OL + (1 - beta1) * (dLdOL ** 2)
         v_b3 = beta1 * v_b3 + (1 - beta1) * (dLdb3 ** 2)
 
-        M = M - n * m_M
-        b = b - n * m_b
-        M2 = M2 - n * m_M2
-        b2 = b2 - n * m_b2
-        OL = OL - n * m_OL
-        b3 = b3 - n * m_b3
+        M = M - n * dLdM / (np.sqrt(v_M) + epsilon)
+        b = b - n * dLdb / (np.sqrt(v_b) + epsilon)
+        M2 = M2 - n * dLdM2 / (np.sqrt(v_M2) + epsilon)
+        b2 = b2 - n * dLdb2 / (np.sqrt(v_b2) + epsilon)
+        OL = OL - n * dLdOL / (np.sqrt(v_OL) + epsilon)
+        b3 = b3 - n * dLdb3 / (np.sqrt(v_b3) + epsilon)
 
     # Learning-rate decay
     n = n * 0.985
