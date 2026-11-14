@@ -138,12 +138,12 @@ for epoch in range(35):
 
         #Actual SGD with momentum mathematics
 
-        v_M = beta1 * v_M + dLdM
-        v_b = beta1 * v_b + dLdb
-        v_M2 = beta1 * v_M2 + dLdM2
-        v_b2 = beta1 * v_b2 + dLdb2
-        v_OL = beta1 * v_OL + dLdOL
-        v_b3 = beta1 * v_b3 + dLdb3
+        v_M = beta1 * v_M + (1 - beta1) * (dLdM ** 2)
+        v_b = beta1 * v_b + (1 - beta1) * (dLdb ** 2)
+        v_M2 = beta1 * v_M2 + (1 - beta1) * (dLdM2 ** 2)
+        v_b2 = beta1 * v_b2 + (1 - beta1) * (dLdb2 ** 2)
+        v_OL = beta1 * v_OL + (1 - beta1) * (dLdOL ** 2)
+        v_b3 = beta1 * v_b3 + (1 - beta1) * (dLdb3 ** 2)
 
         M = M - n * m_M
         b = b - n * m_b
