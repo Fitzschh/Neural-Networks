@@ -1,4 +1,4 @@
-# MNIST Neural Networks from First Principles
+ # MNIST Neural Networks from First Principles
 ### Mathematical Foundations, Implementation, and Computational Analysis
 
 
@@ -38,8 +38,9 @@ In programming, linear algebra has been widely used especially with game develop
 The core idea is that the algebra we know only solves one problem at a time. What makes linear algebra so special is that it allows multiple calculations to happen all at once. And since we are dealing with multivariable problems when it comes to game development or artificial intelligence, linear algebra is crucial in these cases.
 
 $$
-\sum_{i=1}^{n} = \frac{1}{n}
+z = \sum_{i=1}^{n} w_ix_i + b
 $$
+
 
 
 
