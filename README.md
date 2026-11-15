@@ -43,6 +43,11 @@ In neural networks, vectors are seen differently than how they are in math and p
 
 Take this equation for example
 
-$$ \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} $$
+$$ \mathbf{x} = 
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix} $$
 
 
