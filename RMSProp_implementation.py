@@ -49,7 +49,7 @@ x_train = x_train.reshape(training_images, 784)
 
 labels = np.array(labels)
 
-n = 0.0008
+n = 0.000999999
 beta1 = 0.99
 beta2 = 0.999
 epsilon = 1e-8
