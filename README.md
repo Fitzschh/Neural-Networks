@@ -76,6 +76,7 @@ Where $A$ can be a representation of several objects with their own features, ta
 As for how matrices is used commonly in neural networks, which are storing weights. It is a bit different than how it is used as data sets.
 
 Consider this matrix $W$:
+
 $$
 \mathbf{W} =
 \begin{bmatrix}
