@@ -43,9 +43,16 @@ In neural networks, vectors are seen differently than how they are in math and p
 
 Take this equation for example
 
-$$ \mathbf{x} =  \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} $$
+$$ \mathbf{x} =  
+\begin{bmatrix} 
+x_1 \\ 
+x_2 \\ 
+x_3 
+\end{bmatrix} $$
 
 We can say that the whole vector is an object. While $x_1$, $x_2$, $x_3$ is the features of the object. Suppose that object is a chair, we could say that $x_1$ is representing the legs of a chair, then $x_2$ is whether the chair has a backrest or not, and $x_3$ could be if the chair is portable or not.
+
+### Matrices
 
 
 
