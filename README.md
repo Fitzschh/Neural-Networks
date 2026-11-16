@@ -54,6 +54,21 @@ We can say that the whole vector is an object. While $x_1$, $x_2$, $x_3$ is the 
 
 ### Matrices
 
+Like vectors, a matrix is an array of numbers and information that serves as containers for the data that we need in neural networks.
 
+There are two use cases for the matrix:
+
+1.) Containers of data - storing and representing a series of valuable data (an example would be a data set)
+2.) Containers of weights - a weight represents the neuron's ability to influence relative to the received input (most common use case)
+
+Consider this equation:
+
+$$
+\mathbf{A} = 
+\begin{bmatrix}
+x_1 & y_1 & z_1 \\
+x_2 & y_2 & z_2
+\end{bmatrix}
+$$
 
 
