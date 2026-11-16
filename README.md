@@ -90,11 +90,12 @@ On its own, it simply looks like a matrix with a bunch of numbers in it. Unlike 
 
 Neural network is based on the biological neurons humans have, although artificial; it somewhat copies the "learning" process of a neuron. So we form a mathematical concept for these neurons in our program. 
 
-##### The Mathematical Formula of a Neuron
+#### The Mathematical Formula of a Neuron
 
 $$
 z = Wx + b
 $$
 
-This is the most fundamental formula in neural networks
+##### This is the most fundamental formula in neural networks
+
 
