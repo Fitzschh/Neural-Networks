@@ -71,5 +71,17 @@ x_2 & y_2 & z_2
 \end{bmatrix}
 $$
 
-Where $A$ can be a representation of several objects with their own features, take $x_1$ and $x_2$ for example; they are on the same column, which can also be represented as a vector. While $y$ and $z$ also operate on the same idea.
+Where $A$ can be a representation of several objects with their own features, take $x_1$ and $x_2$ for example; they are on the same column, which can also be represented as a vector. While $y$ and $z$ also operate on the same idea. They can conceptually mean that, matrix $A$ contains three objects of the same kind with two features for each. This is how matrices are used as data sets. 
+
+As for how matrices is used commonly in neural networks, which are storing weights. It is a bit different than how it is used as data sets.
+
+Consider this matrix $W$:
+$$
+\mathbf{W} =
+\begin{bmatrix}
+0.1 & 0.25 & 0.6 & 0.12 \\
+0.23 & 0.43 & 0.23 & 0.11 \\
+0.54 & 0.68 & 0.13 &. 0.25
+\end{bmatrix}
+$$
 
