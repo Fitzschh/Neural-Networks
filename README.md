@@ -2,8 +2,6 @@
 ### Mathematical Foundations, Implementation, and Computational Analysis
 
 
-
-
 ## Overview
 
 
@@ -85,4 +83,6 @@ $$
 0.54 & 0.68 & 0.13 & 0.25
 \end{bmatrix}
 $$
+
+On its own, it simply looks like a matrix with a bunch of numbers in it. Unlike data sets, where the values stored in a matrix is a vector whose use and what it represents are something that we inform beforehand. When storing weights, it is entirely different; it is a bunch of digits distributed randomly in each of their place in the matrix. To understand, knowing why weights are randomly initialized first is important.
 
