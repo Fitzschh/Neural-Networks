@@ -71,4 +71,5 @@ x_2 & y_2 & z_2
 \end{bmatrix}
 $$
 
+Where $A$ can be a representation of several objects with their own features, take $x_1$ and $x_2$ for example; they are on the same column, which can also be represented as a vector. While $y$ and $z$ also operate on the same idea.
 
