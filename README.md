@@ -50,7 +50,7 @@ x_3
 
 We can say that the whole vector is an object. While $x_1$, $x_2$, $x_3$ is the features of the object. Suppose that object is a chair, we could say that $x_1$ is representing the legs of a chair, then $x_2$ is whether the chair has a backrest or not, and $x_3$ could be if the chair is portable or not.
 
-### Matrices
+#### Matrices
 
 Like vectors, a matrix is an array of numbers and information that serves as containers for the data that we need in neural networks.
 
@@ -85,4 +85,16 @@ $$
 $$
 
 On its own, it simply looks like a matrix with a bunch of numbers in it. Unlike data sets, where the values stored in a matrix is a vector whose use and what it represents are something that we inform beforehand. When storing weights, it is entirely different; it is a bunch of digits distributed randomly in each of their place in the matrix. To understand, knowing why weights are randomly initialized first is important.
+
+#### Neurons
+
+Neural network is based on the biological neurons humans have, although artificial; it somewhat copies the "learning" process of a neuron. So we form a mathematical concept for these neurons in our program. 
+
+##### The Mathematical Formula of a Neuron
+
+$$
+z = Wx + b
+$$
+
+This is the most fundamental formula in neural networks
 
