@@ -90,6 +90,19 @@ On its own, it simply looks like a matrix with a bunch of numbers in it. Unlike 
 
 Neural network is based on the biological neurons humans have, although artificial; it somewhat copies the "learning" process of a neuron. So we form a mathematical concept for these neurons in our program. 
 
+Consider this matrix again: 
+
+$$
+\mathbf{W} =
+\begin{bmatrix}
+0.1 & 0.25 & 0.6 & 0.12 \\
+0.23 & 0.43 & 0.23 & 0.11 \\
+0.54 & 0.68 & 0.13 & 0.25
+\end{bmatrix}
+$$
+
+Each column, is the weights of a neuron. And the digits inside that weight is what makes a neuron distinguish an input, at least when trained. In this case, or rather, in most case; the weights are initialized in random as a "raw" representation of an untrained neuron. 
+
 #### The Mathematical Formula of a Neuron
 
 $$
@@ -98,4 +111,9 @@ $$
 
 ##### This is the most fundamental formula in neural networks
 
+So why is it initialized in random? What exactly are the weights?
+
+#### Weights
+
+This is what the matrix $W$ represents on the mathematical formula of a neuron. It is a matrix filled with digits distributed randomly at first. It is random because it crosses out symmetry on the weights. Imagine if all weight values are equal, then the results would be identical as well. This is will make sense later on when the idea of updating the weights is introduced. 
 
