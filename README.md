@@ -117,3 +117,34 @@ So why is it initialized in random? What exactly are the weights?
 
 This is what the matrix $W$ represents on the mathematical formula of a neuron. It is a matrix filled with digits distributed randomly at first. It is random because it crosses out symmetry on the weights. Imagine if all weight values are equal, then the results would be identical as well. This is will make sense later on when the idea of updating the weights is introduced. 
 
+In this matrix: 
+
+$$
+\mathbf{W} =
+\begin{bmatrix}
+0.1 & 0.25 & 0.6 & 0.12 \\
+0.23 & 0.43 & 0.23 & 0.11 \\
+0.54 & 0.68 & 0.13 & 0.25
+\end{bmatrix}
+$$
+
+Each digits in a row represents the weights of that neuron. 
+
+#### Inputs
+
+This is what $x$ is representing on the mathematical formula of a neuron. Most of the time, it is a vector; but there are cases where it is a matrix as well. But in this project, it is usually a vector containing the features and data of an input. 
+
+Consider this vector:
+
+$$
+\mathbf{x} = 
+\begin{bmatrix}
+0.98 \\
+0.45 \\
+0.32 \\
+0.12 
+\end{bmatrix}
+$$
+
+This is an input where it has four features. It represents the data of an input mathematically. 
+
