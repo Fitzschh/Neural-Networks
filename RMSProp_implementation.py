@@ -71,7 +71,7 @@ v_b3 = np.zeros_like(b3)
 
 training_start = time.perf_counter()
 
-for epoch in range(200):
+for epoch in range(1):
 
     total_loss = 0
 
@@ -162,48 +162,46 @@ for epoch in range(200):
 
     avg_loss.append(average_loss)
 
-    if epoch + 1 >= 20:
-        correct_pred = []
-        num_of_images = 10000
+correct_pred = []
+#Prediction only
+num_of_images = 10000
 
-        file3.seek(16)
-        file4.seek(8)
+file4.seek(8)
 
-        for i in range(num_of_images):
-            image = file3.read(784)
-            label = file4.read(1)[0]
+for i in range(num_of_images):
 
-            inputs = np.frombuffer(image, dtype=np.uint8).astype(np.float32) / 255
+    image = file3.read(784)
+    label = file4.read(1)
 
-            z = inputs @ M.T + b
-            a = activation(z)
-            z2 = a @ M2.T + b2
-            a2 = activation(z2)
-            z3 = a2 @ OL.T + b3
-            y = softmax(z3)
+    label = label[0]
 
-            prediction = np.argmax(y)
+    inputs = np.frombuffer(image, dtype=np.uint8).astype(np.float32) / 255
 
-            if prediction == label:
-                correct_pred.append(1)
+    z = inputs @ M.T + b
 
-        accuracy = (sum(correct_pred) / num_of_images) * 100
-        epoch_points.append(epoch + 1)
-        accuracy_list.append(accuracy)
+    a = activation(z)
 
-        print(f"Accuracy after Epoch {epoch + 1}: {accuracy}%")
+    z2 = a @ M2.T + b2
+
+    a2 = activation(z2)
+
+    z3 = a2 @ OL.T + b3
+
+    y = softmax(z3)
+
+    prediction = np.argmax(y)
+
+    if prediction == label:
+        correct_pred.append(1)
+
+accuracy = (sum(correct_pred) / num_of_images) * 100
 
 training_time = time.perf_counter() - training_start
 
 training_times.append(training_time)
 
 print(f"Training time for {training_images} images over {epoch + 1} epochs: {training_time:.2f} seconds")
-
-plt.plot(epoch_points, accuracy_list)
-plt.title("Epochs vs Accuracy for 60k Images RMSProp Training")
-plt.xlabel("Epochs")
-plt.ylabel("Accuracy")
-plt.show()
+print(f"Accuracy: {accuracy:.2f}%")
 
 while True:
     choice = input("Save trained model? (y/n): ").lower()
