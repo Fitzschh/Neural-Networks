@@ -164,3 +164,29 @@ $$
 $$
 
 One thing you will notice is that the number of rows in a bias is also the same number of rows a weight has. It is because, for each neuron, it has one bias value for each. And we have already established that the number of rows in a matrix containing weights, is the number of neurons there is. 
+
+When combined, the equation eventually looks like this:
+
+$$
+z = Wx + b
+$$
+
+$$
+z = 
+\begin{bmatrix}
+0.1 & 0.25 & 0.6 & 0.12 \\
+0.23 & 0.43 & 0.23 & 0.11 \\
+0.54 & 0.68 & 0.13 & 0.25
+\end{bmatrix}
+\begin{bmatrix}
+0.98 \\
+0.45 \\
+0.32 \\
+0.12 
+\end{bmatrix} + 
+\begin{bmatrix}
+0.2 \\
+0.5 \\
+0.1 
+\end{bmatrix}
+$$
