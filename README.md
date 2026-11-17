@@ -190,3 +190,13 @@ z =
 0.1 
 \end{bmatrix}
 $$
+
+This is what a neuron operations looks like mathematically. 
+
+You will also notice that the input vector is the only one that isn't symmetrically aligned to both weights and biases. It is the only one with 4 features while the weights and biases only has three. 
+
+### Linear Transformations
+
+#### Dot Product
+
+Now we will introduce the first fundamental operations in linear algebra that is essential for neural networks and is the key to understanding why the mathematics inside a neural network works. 
