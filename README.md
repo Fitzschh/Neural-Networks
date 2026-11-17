@@ -163,3 +163,4 @@ $$
 \end{bmatrix}
 $$
 
+One thing you will notice is that the number of rows in a bias is also the same number of rows a weight has. It is because, for each neuron, it has one bias value for each. And we have already established that the number of rows in a matrix containing weights, is the number of neurons there is. 
