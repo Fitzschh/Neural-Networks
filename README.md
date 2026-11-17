@@ -199,4 +199,23 @@ You will also notice that the input vector is the only one that isn't symmetrica
 
 #### Dot Product
 
-Now we will introduce the first fundamental operations in linear algebra that is essential for neural networks and is the key to understanding why the mathematics inside a neural network works. 
+Now we will introduce the first fundamental operations in linear algebra that is essential for neural networks and is the key to understanding why the mathematics inside a neural network works.
+
+Consider this equation:
+
+$$
+c = 4
+\mathbf{v} = 
+\begin{bmatrix}
+0.3 \\
+0.2 \\
+0.1 
+\end{bmatrix}
+c(\mathbf{v}) = 
+4
+\begin{bmatrix}
+0.3 \\
+0.2 \\
+0.1 
+\end{bmatrix}
+$$
