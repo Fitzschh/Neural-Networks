@@ -49,7 +49,7 @@ x_train = x_train.reshape(training_images, 784)
 
 labels = np.array(labels)
 
-n = 0.000999999
+n = 0.001
 beta1 = 0.99
 beta2 = 0.999
 epsilon = 1e-8
@@ -71,7 +71,7 @@ v_b3 = np.zeros_like(b3)
 
 training_start = time.perf_counter()
 
-for epoch in range(24):
+for epoch in range(28):
 
     total_loss = 0
 
