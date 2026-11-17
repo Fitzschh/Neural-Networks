@@ -211,11 +211,21 @@ c = 4
 0.2 \\
 0.1 
 \end{bmatrix}
+$$
+$$
 c(\mathbf{v}) = 
 4
 \begin{bmatrix}
 0.3 \\
 0.2 \\
 0.1 
+\end{bmatrix}
+$$
+$$
+c(\mathbf{v}) = 
+\begin{bmatrix}
+4(0.3) \\
+4(0.2) \\
+4(0.1) 
 \end{bmatrix}
 $$
