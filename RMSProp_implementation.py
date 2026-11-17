@@ -71,7 +71,7 @@ v_b3 = np.zeros_like(b3)
 
 training_start = time.perf_counter()
 
-for epoch in range(25):
+for epoch in range(200):
 
     total_loss = 0
 
