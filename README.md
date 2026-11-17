@@ -146,5 +146,8 @@ $$
 \end{bmatrix}
 $$
 
-This is an input where it has four features. It represents the data of an input mathematically. 
+This is an example of an input where it has four features. It represents the data of an input mathematically. 
 
+#### Bias
+
+For the bias where it represents the $b$ on the neuron formula, the primary reason is purely mathematical. Consider the mathematical formula for the neuron $z = Wx + b$. If we removed $b$, the origin for each would be at (0, 0), making it harder for the network to distinguish patterns and is limited only to that certain origin. By adding a bias, the boundaries can be placed anywhere on the graph, as it "shifts" the equation. Which is why the formula for a neuron is $z = Wx + b$. 
