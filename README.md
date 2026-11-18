@@ -354,3 +354,5 @@ Thus, we portray the entire equation as:
 $$
 (m \times n)(n \times 1) = (m \times 1)
 $$
+
+In the case of $W$ and $x$, $W$ has dimensions of $(3 \times 4)$ while $x$ has dimensions of $(4 \times 1)$. Notice that in the equation $(m \times n)(n \times 1) = (m \times 1)$, The $n$ of $(m \times n)$ and $(n \times 1)$ has the same value, and in our example; the value is 4. It shows that the number of features a vector must have has to be the same number of columns the matrix has. 
