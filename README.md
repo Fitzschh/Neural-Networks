@@ -273,3 +273,41 @@ $$
 5
 \end{bmatrix}
 $$
+
+Unlike scalar to vector where it has one feature, and we only need to multiply that feature to the features inside a vector or a matrix; for a dot product, it is commonly used when a case like vector to vector or vector to matrix happens. 
+
+Take $Wx$ as an example:
+
+$$
+\mathbf{Wx} =
+\begin{bmatrix}
+0.1 & 0.25 & 0.6 & 0.12 \\
+0.23 & 0.43 & 0.23 & 0.11 \\
+0.54 & 0.68 & 0.13 & 0.25
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+3 \\
+1 \\
+5
+\end{bmatrix}
+$$
+
+Multiply the vector $x$ to each corresponding column per neuron in matrix $W$:
+
+$$
+\mathbf{Wx} =
+\begin{bmatrix}
+0.1(2) +& 0.25(3) +& 0.6(1) +& 0.12(5) \\
+0.23(2) +& 0.43(3) +& 0.23(1) +& 0.11(5) \\
+0.54(2) +& 0.68(3) +& 0.13(1) +& 0.25(5)
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+3 \\
+1 \\
+5
+\end{bmatrix}
+$$
+
+and then sum up the product of each feature into one result per each neuron.
