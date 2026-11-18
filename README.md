@@ -204,7 +204,7 @@ Now we will introduce the first fundamental operations in linear algebra that is
 Consider this equation:
 
 $$
-c = 4 \quad
+c = 4 \qquad
 \mathbf{v} = 
 \begin{bmatrix}
 0.3 \\
