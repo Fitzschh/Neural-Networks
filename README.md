@@ -233,3 +233,18 @@ $$
 This is an example of a scalar to vector operations, the scalar multiplies every feature of a vector by itself.
 
 But in neural networks, we aren't dealing with just a single digit, but a lot of them. So we do an operation one step further. 
+
+#### Dot Product
+
+We have tackled what scalar to vector operations looks like, but what if it’s a vector to vector, or even a vector to matrix operations? That’s what dot product is. Instead of one value affecting a vector, there are several at once. And knowing how it works and behaves is crucial to understanding how the entire neural network operates without abstraction.
+
+Consider this equation: 
+
+$$
+\mathbf{v} = 
+\begin{bmatrix}
+0.1 & 0.25 & 0.6 & 0.12 \\
+0.23 & 0.43 & 0.23 & 0.11 \\
+0.54 & 0.68 & 0.13 & 0.25
+\end{bmatrix}
+$$
