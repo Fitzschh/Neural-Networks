@@ -346,3 +346,11 @@ That is because of this theorem:
 $$
 \mathbb{ℝ}^{m \times n} = \mathbb{ℝ}^{m \times 1}
 $$
+
+Where $m$ is the dimension for the rows of a matrix, while $n$ is the dimension for the columns of a matrix. While a vector has $n$ as a number of rows or features a vector has, and 1 as a column.
+
+Thus, we portray the entire equation as:
+
+$$
+(m \times n)(n \times 1) = (m \times 1)
+$$
