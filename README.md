@@ -314,3 +314,35 @@ $$
 $$
 
 and then sum up the product of each feature into one result per each neuron.
+
+#### Dimensions
+
+As you have observed, the result of $Wx$ only has 3 neurons, while the input $x$ has 4 features. That is because the result follows the same dimension as the weights. There are some rules these operations must abide. 
+
+Take a look at this equation:
+
+$$
+\mathbf{Wx} =
+\begin{bmatrix}
+0.1(2) +& 0.25(3) +& 0.6(1) +& 0.12(5) \\
+0.23(2) +& 0.43(3) +& 0.23(1) +& 0.11(5) \\
+0.54(2) +& 0.68(3) +& 0.13(1) +& 0.25(5)
+\end{bmatrix}
+$$
+
+$$
+\mathbf{Wx} =
+\begin{bmatrix}
+2.15 \\
+2.53 \\
+4.5
+\end{bmatrix}
+$$
+
+We see a 3x4 matrix being converted into a 3x1 vector as a result. 
+
+That is because of this theorem:
+
+$$
+\mathbb{R}^{m*n} = \mathbb{R}^{m*1}
+$$
