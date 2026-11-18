@@ -344,5 +344,5 @@ We see a 3x4 matrix being converted into a 3x1 vector as a result.
 That is because of this theorem:
 
 $$
-\mathbb{R}^{m*n} = \mathbb{R}^{m*1}
+\mathbb{R}^{m \times n} = \mathbb{R}^{m \times 1}
 $$
