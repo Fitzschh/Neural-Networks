@@ -249,6 +249,7 @@ $$
 \end{bmatrix}
 \qquad
 \mathbf{x} =
+\begin{bmatrix}
 2 \\
 3 \\
 1 \\
