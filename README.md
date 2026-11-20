@@ -11,7 +11,7 @@ Using the MNIST handwritten digit dataset, I built a multilayer neural network t
 
 ### Motivation
 
-The increasing accessibility of machine learning frameworks has significantly simplified the implementation of neural networks. However, these abstractions can obscure the underlying mathematical operations, particularly for individuals attempting to understand how neural networks learn and optimize their parameters.
+The increasing accessibility of machine learning frameworks has significantly simplified the implementation of neural networks. However, these abstractions can obscure the underlying mathematical operations, particularly for individuals attempting to understand how neural networks learn and optimize their parameters. The whole purpose of the project is to learn the core ideas or the fundamental mathematics of a neural network.
 
 ### Methodology
 
@@ -19,13 +19,7 @@ The project serves as a tangible output while learning the fundamental mathemati
 
 The project also encourages the use and need for low level implementations of several functions, such as a summation function made with pure python, or the crucial mathematical functions used in Machine Learning, such as the dot product, softmax and more.
 
-## Neural Network Architecture
-
-![Neural Network Architecture](assets/neural-network.jpeg)
-
-### 4 Layered Neural Network
-
-This design is suitable enough for a MNIST Handwritten Digit Classifier Network. The whole purpose of the project is to learn the core ideas or the fundamental mathematics of a neural network.
+## Chapter I
 
 ## Mathematical Principles
 
@@ -357,6 +351,8 @@ $$
 
 In the case of $W$ and $x$, $W$ has dimensions of $(3 \times 4)$ while $x$ has dimensions of $(4 \times 1)$. Notice that in the equation $(m \times n)(n \times 1) = (m \times 1)$, The $n$ of $(m \times n)$ and $(n \times 1)$ has the same value, and in our example; the value is 4. It shows that the number of features a vector must have has to be the same number of columns the matrix has.
 
+## Chapter 2
+
 ## Mathematical Implementation
 
 ### Problem
@@ -365,4 +361,12 @@ In this project, we have already established that we will be using an MNIST Hand
 
 As such, we will be constructing a Multilayer Perceptron (MLP) neural network.
 
+### Neural Network Architecture
 
+![Neural Network Architecture](assets/neural-network.jpeg)
+
+Every neuron of each layer is communicating with one another.
+
+### 4 Layered Neural Network
+
+This design is suitable enough for a MNIST Handwritten Digit Classifier Network. A neural network consists of several layers, we have the Input Layer, Hidden Layers, and the Output Layer. As they are named, the Input Layer consists the layer where the input is being fed to the network. The Hidden Layers are the extra layers, and is also the layer where "learning" mostly occurs. They can be as many layers as you want, but increasing the number of layers may provide "deep learning" but it doesn't guarantee increase in performance all the time, in fact it could worsen the network when it is forced to do "deep learning" for simple tasks such as recognizing a handwritten digit. And finally, the Output Layer; where the network successfully processes the input and predicts an output.
