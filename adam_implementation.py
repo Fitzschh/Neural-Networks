@@ -53,6 +53,7 @@ n = 0.01
 beta1 = 0.9
 beta2 = 0.999
 t = 0
+epsilon = 1e-8
 
 m_M = np.zeros_like(M)
 m_b = np.zeros_like(b)
@@ -170,12 +171,15 @@ for epoch in range(1):
         v_OL_hat = v_OL / (1 - beta2 ** t)
         v_b3_hat = v_b3 / (1 - beta2 ** t)
 
-        M = M - n * m_M
-        b = b - n * m_b
-        M2 = M2 - n * m_M2
-        b2 = b2 - n * m_b2
-        OL = OL - n * m_OL
-        b3 = b3 - n * m_b3
+
+        #Parameter updates for Adam
+
+        M = M - n * m_M_hat / (np.sqrt(v_M_hat) + epsilon)
+        b = b - n * m_b_hat / (np.sqrt(v_b_hat) + epsilon)
+        M2 = M2 - n * m_M2_hat / (np.sqrt(v_M2_hat) + epsilon)
+        b2 = b2 - n * m_b2_hat / (np.sqrt(v_b2_hat) + epsilon)
+        OL = OL - n * m_OL_hat / (np.sqrt(v_OL_hat) + epsilon)
+        b3 = b3 - n * m_b3_hat / (np.sqrt(v_b3_hat) + epsilon)
 
     # Learning-rate decay
     n = n * 0.985
