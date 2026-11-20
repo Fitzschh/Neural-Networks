@@ -52,6 +52,7 @@ labels = np.array(labels)
 n = 0.01
 beta1 = 0.9
 beta2 = 0.999
+t = 0
 
 m_M = np.zeros_like(M)
 m_b = np.zeros_like(b)
@@ -135,6 +136,8 @@ for epoch in range(1):
         dLdM = dLdz.T @ inputs
 
         dLdb = np.sum(dLdz, axis=0)
+
+        t += 1
 
         #Actual SGD with momentum mathematics
 
