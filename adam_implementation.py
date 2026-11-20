@@ -162,7 +162,13 @@ for epoch in range(1):
         m_b2_hat = m_b2 / (1 - beta1 ** t)
         m_OL_hat = m_OL / (1 - beta1 ** t)
         m_b3_hat = m_b3 / (1 - beta1 ** t)
-        
+
+        v_M_hat = v_M / (1 - beta2 ** t)
+        v_b_hat = v_b / (1 - beta2 ** t)
+        v_M2_hat = v_M2 / (1 - beta2 ** t)
+        v_b2_hat = v_b2 / (1 - beta2 ** t)
+        v_OL_hat = v_OL / (1 - beta2 ** t)
+        v_b3_hat = v_b3 / (1 - beta2 ** t)
 
         M = M - n * m_M
         b = b - n * m_b
