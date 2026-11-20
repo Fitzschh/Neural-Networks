@@ -139,7 +139,7 @@ for epoch in range(1):
 
         t += 1
 
-        #Actual SGD with momentum mathematics
+        #Actual Adam implementation mathematics
 
         m_M = beta1 * m_M + (1 - beta1) * dLdM
         m_b = beta1 * m_b + (1 - beta1) * dLdb
@@ -154,6 +154,15 @@ for epoch in range(1):
         v_b2 = beta2 * v_b2 + (1 - beta2) * (dLdb2 ** 2)
         v_OL = beta2 * v_OL + (1 - beta2) * (dLdOL ** 2)
         v_b3 = beta2 * v_b3 + (1 - beta2) * (dLdb3 ** 2)
+
+        #Bias correction equations
+        m_M_hat = m_M / (1 - beta1 ** t)
+        m_b_hat = m_b / (1 - beta1 ** t)
+        m_M2_hat = m_M2 / (1 - beta1 ** t)
+        m_b2_hat = m_b2 / (1 - beta1 ** t)
+        m_OL_hat = m_OL / (1 - beta1 ** t)
+        m_b3_hat = m_b3 / (1 - beta1 ** t)
+        
 
         M = M - n * m_M
         b = b - n * m_b
