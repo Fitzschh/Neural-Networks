@@ -49,9 +49,11 @@ x_train = x_train.reshape(training_images, 784)
 
 labels = np.array(labels)
 
-n = 0.01
-beta1 = 0.9
+n = 0.00099
+beta1 = 0.95
 beta2 = 0.999
+t = 0
+epsilon = 1e-8
 
 m_M = np.zeros_like(M)
 m_b = np.zeros_like(b)
@@ -70,7 +72,7 @@ v_b3 = np.zeros_like(b3)
 
 training_start = time.perf_counter()
 
-for epoch in range(35):
+for epoch in range(24):
 
     total_loss = 0
 
@@ -136,24 +138,51 @@ for epoch in range(35):
 
         dLdb = np.sum(dLdz, axis=0)
 
-        #Actual SGD with momentum mathematics
+        t += 1
 
-        m_M = beta1 * m_M + dLdM
-        m_b = beta1 * m_b + dLdb
-        m_M2 = beta1 * m_M2 + dLdM2
-        m_b2 = beta1 * m_b2 + dLdb2
-        m_OL = beta1 * m_OL + dLdOL
-        m_b3 = beta1 * m_b3 + dLdb3
+        #Actual Adam implementation mathematics
 
-        M = M - n * m_M
-        b = b - n * m_b
-        M2 = M2 - n * m_M2
-        b2 = b2 - n * m_b2
-        OL = OL - n * m_OL
-        b3 = b3 - n * m_b3
+        m_M = beta1 * m_M + (1 - beta1) * dLdM
+        m_b = beta1 * m_b + (1 - beta1) * dLdb
+        m_M2 = beta1 * m_M2 + (1 - beta1) * dLdM2
+        m_b2 = beta1 * m_b2 + (1 - beta1) * dLdb2
+        m_OL = beta1 * m_OL + (1 - beta1) * dLdOL
+        m_b3 = beta1 * m_b3 + (1 - beta1) * dLdb3
+
+        v_M = beta2 * v_M + (1 - beta2) * (dLdM ** 2)
+        v_b = beta2 * v_b + (1 - beta2) * (dLdb ** 2)
+        v_M2 = beta2 * v_M2 + (1 - beta2) * (dLdM2 ** 2)
+        v_b2 = beta2 * v_b2 + (1 - beta2) * (dLdb2 ** 2)
+        v_OL = beta2 * v_OL + (1 - beta2) * (dLdOL ** 2)
+        v_b3 = beta2 * v_b3 + (1 - beta2) * (dLdb3 ** 2)
+
+        #Bias correction equations
+        m_M_hat = m_M / (1 - beta1 ** t)
+        m_b_hat = m_b / (1 - beta1 ** t)
+        m_M2_hat = m_M2 / (1 - beta1 ** t)
+        m_b2_hat = m_b2 / (1 - beta1 ** t)
+        m_OL_hat = m_OL / (1 - beta1 ** t)
+        m_b3_hat = m_b3 / (1 - beta1 ** t)
+
+        v_M_hat = v_M / (1 - beta2 ** t)
+        v_b_hat = v_b / (1 - beta2 ** t)
+        v_M2_hat = v_M2 / (1 - beta2 ** t)
+        v_b2_hat = v_b2 / (1 - beta2 ** t)
+        v_OL_hat = v_OL / (1 - beta2 ** t)
+        v_b3_hat = v_b3 / (1 - beta2 ** t)
+
+
+        #Parameter updates for Adam
+
+        M = M - n * m_M_hat / (np.sqrt(v_M_hat) + epsilon)
+        b = b - n * m_b_hat / (np.sqrt(v_b_hat) + epsilon)
+        M2 = M2 - n * m_M2_hat / (np.sqrt(v_M2_hat) + epsilon)
+        b2 = b2 - n * m_b2_hat / (np.sqrt(v_b2_hat) + epsilon)
+        OL = OL - n * m_OL_hat / (np.sqrt(v_OL_hat) + epsilon)
+        b3 = b3 - n * m_b3_hat / (np.sqrt(v_b3_hat) + epsilon)
 
     # Learning-rate decay
-    n = n * 0.985
+    #n = n * 0.985
 
     average_loss = total_loss / len(images)
 
