@@ -396,3 +396,5 @@ W_{2,1}^2 & W_{2,2}^2 & \cdots & W_{2,m}^2 \\
 W_{n,1}^2 & W_{n,2}^2 & \cdots & W_{n,m}^2
 \end{bmatrix}
 $$
+
+We can see that $W^1$ represents the weights  of Layer 1, while $W^2$ represents the weights of Layer 2. While n represents the number of neurons the layer has. And m is the number of inputs this layer should take as we have discussed previously in dimensions.
