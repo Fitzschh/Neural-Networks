@@ -1,6 +1,6 @@
  # MNIST Neural Networks from First Principles
-### Mathematical Foundations, Implementation, and Computational Analysis
-
+## Mathematical Foundations, Implementation, and Computational Analysis
+### Independent Computational Mathematics and Machine Learning Project
 
 ## Overview
 
@@ -370,3 +370,4 @@ Every neuron of each layer is communicating with one another.
 ### 4 Layered Neural Network
 
 This design is suitable enough for a MNIST Handwritten Digit Classifier Network. A neural network consists of several layers, we have the Input Layer, Hidden Layers, and the Output Layer. As they are named, the Input Layer consists the layer where the input is being fed to the network. The Hidden Layers are the extra layers, and is also the layer where "learning" mostly occurs. They can be as many layers as you want, but increasing the number of layers may provide "deep learning" but it doesn't guarantee increase in performance all the time, in fact it could worsen the network when it is forced to do "deep learning" for simple tasks such as recognizing a handwritten digit. And finally, the Output Layer; where the network successfully processes the input and predicts an output.
+
