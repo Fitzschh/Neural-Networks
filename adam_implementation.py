@@ -49,6 +49,19 @@ x_train = x_train.reshape(training_images, 784)
 
 labels = np.array(labels)
 
+# Load test data once for accuracy measurements after each epoch.
+test_images = []
+test_labels = []
+file3.seek(16)
+file4.seek(8)
+for i in range(10000):
+    test_images.append(file3.read(784))
+    test_labels.append(file4.read(1)[0])
+
+x_test = np.frombuffer(b''.join(test_images), dtype=np.uint8).astype(np.float32) / 255
+x_test = x_test.reshape(10000, 784)
+test_labels = np.array(test_labels)
+
 n = 0.00099
 beta1 = 0.91
 beta2 = 0.999
@@ -190,39 +203,19 @@ for epoch in range(24):
 
     avg_loss.append(average_loss)
 
-correct_pred = []
-#Prediction only
-num_of_images = 10000
+    z_test = x_test @ M.T + b
+    a_test = activation(z_test)
+    z2_test = a_test @ M2.T + b2
+    a2_test = activation(z2_test)
+    z3_test = a2_test @ OL.T + b3
+    y_test = batch_softmax(z3_test)
 
-file4.seek(8)
+    epoch_accuracy = np.mean(np.argmax(y_test, axis=1) == test_labels) * 100
+    epoch_points.append(epoch + 1)
+    accuracy_list.append(epoch_accuracy)
+    print(f"Accuracy after epoch {epoch + 1}: {epoch_accuracy:.2f}%")
 
-for i in range(num_of_images):
-
-    image = file3.read(784)
-    label = file4.read(1)
-
-    label = label[0]
-
-    inputs = np.frombuffer(image, dtype=np.uint8).astype(np.float32) / 255
-
-    z = inputs @ M.T + b
-    
-    a = activation(z)
-    
-    z2 = a @ M2.T + b2
-    
-    a2 = activation(z2)
-    
-    z3 = a2 @ OL.T + b3
-    
-    y = softmax(z3)
-
-    prediction = np.argmax(y)
-
-    if prediction == label:
-        correct_pred.append(1)
-
-accuracy = (sum(correct_pred) / num_of_images) * 100
+accuracy = accuracy_list[-1]
 
 training_time = time.perf_counter() - training_start
 
@@ -230,6 +223,24 @@ training_times.append(training_time)
 
 print(f"Training time for {training_images} images over {epoch + 1} epochs: {training_time:.2f} seconds")
 print(f"Accuracy: {accuracy:.2f}%")
+
+fig, (loss_ax, accuracy_ax) = plt.subplots(1, 2, figsize=(12, 4))
+
+loss_ax.plot(range(1, len(avg_loss) + 1), avg_loss, marker="o")
+loss_ax.set_xlabel("Epoch")
+loss_ax.set_ylabel("Average Loss")
+loss_ax.set_title("Training Loss")
+loss_ax.grid(True)
+
+accuracy_ax.plot(epoch_points, accuracy_list, marker="o", color="green")
+accuracy_ax.set_xlabel("Epoch")
+accuracy_ax.set_ylabel("Accuracy (%)")
+accuracy_ax.set_title("Test Accuracy per Epoch")
+accuracy_ax.set_ylim(0, 100)
+accuracy_ax.grid(True)
+
+plt.tight_layout()
+plt.show()
 
 while True:
     choice = input("Save trained model? (y/n): ").lower()

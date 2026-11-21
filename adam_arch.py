@@ -49,9 +49,23 @@ x_train = x_train.reshape(training_images, 784)
 
 labels = np.array(labels)
 
-n = 0.001
-beta1 = 0.99
+# Load the test set once so accuracy can be measured after every epoch.
+test_images = []
+test_labels = []
+file3.seek(16)
+file4.seek(8)
+for i in range(10000):
+    test_images.append(file3.read(784))
+    test_labels.append(file4.read(1)[0])
+
+x_test = np.frombuffer(b''.join(test_images), dtype=np.uint8).astype(np.float32) / 255
+x_test = x_test.reshape(10000, 784)
+test_labels = np.array(test_labels)
+
+n = 0.00099
+beta1 = 0.91
 beta2 = 0.999
+t = 0
 epsilon = 1e-8
 
 m_M = np.zeros_like(M)
@@ -71,7 +85,7 @@ v_b3 = np.zeros_like(b3)
 
 training_start = time.perf_counter()
 
-for epoch in range(1):
+for epoch in range(24):
 
     total_loss = 0
 
@@ -137,21 +151,45 @@ for epoch in range(1):
 
         dLdb = np.sum(dLdz, axis=0)
 
-        #Actual SGD with momentum mathematics
+        t += 1
 
-        v_M = beta1 * v_M + (1 - beta1) * (dLdM ** 2)
-        v_b = beta1 * v_b + (1 - beta1) * (dLdb ** 2)
-        v_M2 = beta1 * v_M2 + (1 - beta1) * (dLdM2 ** 2)
-        v_b2 = beta1 * v_b2 + (1 - beta1) * (dLdb2 ** 2)
-        v_OL = beta1 * v_OL + (1 - beta1) * (dLdOL ** 2)
-        v_b3 = beta1 * v_b3 + (1 - beta1) * (dLdb3 ** 2)
+        # Adam moment estimates
+        m_M = beta1 * m_M + (1 - beta1) * dLdM
+        m_b = beta1 * m_b + (1 - beta1) * dLdb
+        m_M2 = beta1 * m_M2 + (1 - beta1) * dLdM2
+        m_b2 = beta1 * m_b2 + (1 - beta1) * dLdb2
+        m_OL = beta1 * m_OL + (1 - beta1) * dLdOL
+        m_b3 = beta1 * m_b3 + (1 - beta1) * dLdb3
 
-        M = M - n * dLdM / (np.sqrt(v_M) + epsilon)
-        b = b - n * dLdb / (np.sqrt(v_b) + epsilon)
-        M2 = M2 - n * dLdM2 / (np.sqrt(v_M2) + epsilon)
-        b2 = b2 - n * dLdb2 / (np.sqrt(v_b2) + epsilon)
-        OL = OL - n * dLdOL / (np.sqrt(v_OL) + epsilon)
-        b3 = b3 - n * dLdb3 / (np.sqrt(v_b3) + epsilon)
+        v_M = beta2 * v_M + (1 - beta2) * (dLdM ** 2)
+        v_b = beta2 * v_b + (1 - beta2) * (dLdb ** 2)
+        v_M2 = beta2 * v_M2 + (1 - beta2) * (dLdM2 ** 2)
+        v_b2 = beta2 * v_b2 + (1 - beta2) * (dLdb2 ** 2)
+        v_OL = beta2 * v_OL + (1 - beta2) * (dLdOL ** 2)
+        v_b3 = beta2 * v_b3 + (1 - beta2) * (dLdb3 ** 2)
+
+        # Bias-corrected moment estimates
+        m_M_hat = m_M / (1 - beta1 ** t)
+        m_b_hat = m_b / (1 - beta1 ** t)
+        m_M2_hat = m_M2 / (1 - beta1 ** t)
+        m_b2_hat = m_b2 / (1 - beta1 ** t)
+        m_OL_hat = m_OL / (1 - beta1 ** t)
+        m_b3_hat = m_b3 / (1 - beta1 ** t)
+
+        v_M_hat = v_M / (1 - beta2 ** t)
+        v_b_hat = v_b / (1 - beta2 ** t)
+        v_M2_hat = v_M2 / (1 - beta2 ** t)
+        v_b2_hat = v_b2 / (1 - beta2 ** t)
+        v_OL_hat = v_OL / (1 - beta2 ** t)
+        v_b3_hat = v_b3 / (1 - beta2 ** t)
+
+        # Parameter updates
+        M = M - n * m_M_hat / (np.sqrt(v_M_hat) + epsilon)
+        b = b - n * m_b_hat / (np.sqrt(v_b_hat) + epsilon)
+        M2 = M2 - n * m_M2_hat / (np.sqrt(v_M2_hat) + epsilon)
+        b2 = b2 - n * m_b2_hat / (np.sqrt(v_b2_hat) + epsilon)
+        OL = OL - n * m_OL_hat / (np.sqrt(v_OL_hat) + epsilon)
+        b3 = b3 - n * m_b3_hat / (np.sqrt(v_b3_hat) + epsilon)
 
     # Learning-rate decay
     #n = n * 0.985
@@ -162,39 +200,19 @@ for epoch in range(1):
 
     avg_loss.append(average_loss)
 
-correct_pred = []
-#Prediction only
-num_of_images = 10000
+    z_test = x_test @ M.T + b
+    a_test = activation(z_test)
+    z2_test = a_test @ M2.T + b2
+    a2_test = activation(z2_test)
+    z3_test = a2_test @ OL.T + b3
+    y_test = batch_softmax(z3_test)
 
-file4.seek(8)
+    epoch_accuracy = np.mean(np.argmax(y_test, axis=1) == test_labels) * 100
+    epoch_points.append(epoch + 1)
+    accuracy_list.append(epoch_accuracy)
+    print(f"Accuracy after epoch {epoch + 1}: {epoch_accuracy:.2f}%")
 
-for i in range(num_of_images):
-
-    image = file3.read(784)
-    label = file4.read(1)
-
-    label = label[0]
-
-    inputs = np.frombuffer(image, dtype=np.uint8).astype(np.float32) / 255
-
-    z = inputs @ M.T + b
-
-    a = activation(z)
-
-    z2 = a @ M2.T + b2
-
-    a2 = activation(z2)
-
-    z3 = a2 @ OL.T + b3
-
-    y = softmax(z3)
-
-    prediction = np.argmax(y)
-
-    if prediction == label:
-        correct_pred.append(1)
-
-accuracy = (sum(correct_pred) / num_of_images) * 100
+accuracy = accuracy_list[-1]
 
 training_time = time.perf_counter() - training_start
 
@@ -202,6 +220,24 @@ training_times.append(training_time)
 
 print(f"Training time for {training_images} images over {epoch + 1} epochs: {training_time:.2f} seconds")
 print(f"Accuracy: {accuracy:.2f}%")
+
+fig, (loss_ax, accuracy_ax) = plt.subplots(1, 2, figsize=(12, 4))
+
+loss_ax.plot(range(1, len(avg_loss) + 1), avg_loss, marker="o")
+loss_ax.set_xlabel("Epoch")
+loss_ax.set_ylabel("Average Loss")
+loss_ax.set_title("Training Loss")
+loss_ax.grid(True)
+
+accuracy_ax.plot(epoch_points, accuracy_list, marker="o", color="green")
+accuracy_ax.set_xlabel("Epoch")
+accuracy_ax.set_ylabel("Accuracy (%)")
+accuracy_ax.set_title("Test Accuracy per Epoch")
+accuracy_ax.set_ylim(0, 100)
+accuracy_ax.grid(True)
+
+plt.tight_layout()
+plt.show()
 
 while True:
     choice = input("Save trained model? (y/n): ").lower()
