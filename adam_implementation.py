@@ -203,17 +203,18 @@ for epoch in range(24):
 
     avg_loss.append(average_loss)
 
-    z_test = x_test @ M.T + b
-    a_test = activation(z_test)
-    z2_test = a_test @ M2.T + b2
-    a2_test = activation(z2_test)
-    z3_test = a2_test @ OL.T + b3
-    y_test = batch_softmax(z3_test)
+    if epoch + 1 >= 20:
+        z_test = x_test @ M.T + b
+        a_test = activation(z_test)
+        z2_test = a_test @ M2.T + b2
+        a2_test = activation(z2_test)
+        z3_test = a2_test @ OL.T + b3
+        y_test = batch_softmax(z3_test)
 
-    epoch_accuracy = np.mean(np.argmax(y_test, axis=1) == test_labels) * 100
-    epoch_points.append(epoch + 1)
-    accuracy_list.append(epoch_accuracy)
-    print(f"Accuracy after epoch {epoch + 1}: {epoch_accuracy:.2f}%")
+        epoch_accuracy = np.mean(np.argmax(y_test, axis=1) == test_labels) * 100
+        epoch_points.append(epoch + 1)
+        accuracy_list.append(epoch_accuracy)
+        print(f"Accuracy after epoch {epoch + 1}: {epoch_accuracy:.2f}%")
 
 accuracy = accuracy_list[-1]
 
@@ -235,7 +236,7 @@ loss_ax.grid(True)
 accuracy_ax.plot(epoch_points, accuracy_list, marker="o", color="green")
 accuracy_ax.set_xlabel("Epoch")
 accuracy_ax.set_ylabel("Accuracy (%)")
-accuracy_ax.set_title("Test Accuracy per Epoch")
+accuracy_ax.set_title("Test Accuracy per Epoch (Starting at Epoch 20)")
 accuracy_ax.set_ylim(0, 100)
 accuracy_ax.grid(True)
 
