@@ -379,9 +379,9 @@ Layer 1
 
 $$
 \begin{bmatrix}
-W_{1,1}^1 & W_{1,2}^1 & \cdot & W_{1,m}^1 \\
-W_{2,1}^1 $ W_{2,2}^1 & \cdot & W_{2,m}^1 \\
-\vdot & \vdot & \ddot & \vdot \\
-W_{n,1}^1 & W_{n,2}^1 & \cdot W_{n,m}^1
+W_{1,1}^1 & W_{1,2}^1 & \cdots & W_{1,m}^1 \\
+W_{2,1}^1 & W_{2,2}^1 & \cdots & W_{2,m}^1 \\
+\vdots & \vdots & \ddots & \vdots \\
+W_{n,1}^1 & W_{n,2}^1 & \cdots W_{n,m}^1
 \end{bmatrix}
 $$
