@@ -371,6 +371,10 @@ Every neuron of each layer is communicating with one another.
 
 This design is suitable enough for a MNIST Handwritten Digit Classifier Network. A neural network consists of several layers, we have the Input Layer, Hidden Layers, and the Output Layer. As they are named, the Input Layer consists the layer where the input is being fed to the network. The Hidden Layers are the extra layers, and is also the layer where "learning" mostly occurs. They can be as many layers as you want, but increasing the number of layers may provide "deep learning" but it doesn't guarantee increase in performance all the time, in fact it could worsen the network when it is forced to do "deep learning" for simple tasks such as recognizing a handwritten digit. And finally, the Output Layer; where the network successfully processes the input and predicts an output.
 
+### Input Layer
+
+To be able to let a network read an image, we must first turn that same image into numerical data. One way to do it would be the color black and white, since we are only dealing with digits; this serves as the best viable approach as of now. We know that black is 0.0 while white is 255.0. We then divide that value by the maximum, which is 255.0 to convert these large whole numbers into numbers lesser than 1 without actually changing their magnitude, simply we are normalizing the data. Since we are only using Multilayer Perceptron (MLP) as a starting architecture. We turn these numerical data into a flattened vector; making it a 1-D vector with 784 features based on the 28 × 28 pixelated image. 
+
 ### Hidden Layers
 
 To further understand what the hidden layers looks like mathematically, we will be visualizing it through a matrix
@@ -398,3 +402,5 @@ W_{n,1}^2 & W_{n,2}^2 & \cdots & W_{n,m}^2
 $$
 
 We can see that $W^1$ represents the weights  of Layer 1, while $W^2$ represents the weights of Layer 2. While n represents the number of neurons the layer has. And m is the number of inputs this layer should take as we have discussed previously in dimensions.
+
+
