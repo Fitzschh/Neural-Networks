@@ -50,7 +50,7 @@ x_train = x_train.reshape(training_images, 784)
 labels = np.array(labels)
 
 n = 0.00099
-beta1 = 0.92
+beta1 = 0.89
 beta2 = 0.999
 t = 0
 epsilon = 1e-8
