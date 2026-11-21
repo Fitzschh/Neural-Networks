@@ -85,7 +85,7 @@ v_b3 = np.zeros_like(b3)
 
 training_start = time.perf_counter()
 
-for epoch in range(24):
+for epoch in range(200):
 
     total_loss = 0
 
@@ -225,22 +225,11 @@ training_times.append(training_time)
 print(f"Training time for {training_images} images over {epoch + 1} epochs: {training_time:.2f} seconds")
 print(f"Accuracy: {accuracy:.2f}%")
 
-fig, (loss_ax, accuracy_ax) = plt.subplots(1, 2, figsize=(12, 4))
-
-loss_ax.plot(range(1, len(avg_loss) + 1), avg_loss, marker="o")
-loss_ax.set_xlabel("Epoch")
-loss_ax.set_ylabel("Average Loss")
-loss_ax.set_title("Training Loss")
-loss_ax.grid(True)
-
-accuracy_ax.plot(epoch_points, accuracy_list, marker="o", color="green")
-accuracy_ax.set_xlabel("Epoch")
-accuracy_ax.set_ylabel("Accuracy (%)")
-accuracy_ax.set_title("Test Accuracy per Epoch (Starting at Epoch 20)")
-accuracy_ax.set_ylim(0, 100)
-accuracy_ax.grid(True)
-
-plt.tight_layout()
+# Plot Epoch vs Accuracy exactly like convergence_test.py
+plt.plot(epoch_points, accuracy_list)
+plt.title("Epochs vs Accuracy for 60k Images Adam Training")
+plt.xlabel("Epochs")
+plt.ylabel("Accuracy")
 plt.show()
 
 while True:
