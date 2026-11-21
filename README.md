@@ -371,3 +371,17 @@ Every neuron of each layer is communicating with one another.
 
 This design is suitable enough for a MNIST Handwritten Digit Classifier Network. A neural network consists of several layers, we have the Input Layer, Hidden Layers, and the Output Layer. As they are named, the Input Layer consists the layer where the input is being fed to the network. The Hidden Layers are the extra layers, and is also the layer where "learning" mostly occurs. They can be as many layers as you want, but increasing the number of layers may provide "deep learning" but it doesn't guarantee increase in performance all the time, in fact it could worsen the network when it is forced to do "deep learning" for simple tasks such as recognizing a handwritten digit. And finally, the Output Layer; where the network successfully processes the input and predicts an output.
 
+### Hidden Layers
+
+To further understand what the hidden layers looks like mathematically, we will be visualizing it through a matrix
+
+Layer 1
+
+$$
+\begin{bmatrix}
+W_{1,1}^1 & W_{1,2}^1 & \cdot & W_{1,m}^1 \\
+W_{2,1}^1 $ W_{2,2}^1 & \cdot & W_{2,m}^1 \\
+\vdot & \vdot & \ddot & \vdot \\
+W_{n,1}^1 & W_{n,2}^1 & \cdot W_{n,m}^1
+\end{bmatrix}
+$$
