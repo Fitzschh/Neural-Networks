@@ -389,10 +389,12 @@ $$
 \begin{bmatrix}
 x_1 \\
 x_2 \\
-\vdots
+\vdots \\
 x_784
 \end{bmatrix}
 $$
+
+Where we have a vector input, with 784 features in total.
 
 Instead of reading 28 pixels per row, repeating such process 28 times. A Multilayer Perceptron instead flattens it into a 1-D vectorized data, so the network can read it in one go. 
 
