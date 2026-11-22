@@ -434,15 +434,16 @@ It fundamentally looks like this:
 
 $$
 \begin{bmatrix}
-ŷ_1 \\ \rightarrow 1
-ŷ_2 \\ \rightarrow 2
-ŷ_3 \\ \rightarrow 3
-ŷ_4 \\ \rightarrow 4
-ŷ_5 \\ \rightarrow 5
-ŷ_6 \\ \rightarrow 6
-ŷ_7 \\ \rightarrow 7
-ŷ_8 \\ \rightarrow 8
-ŷ_9 \\ \rightarrow 9
-ŷ_{10}  \rightarrow 10
+ŷ_1 \\ 
+ŷ_2 \\ 
+ŷ_3 \\ 
+ŷ_4 \\ 
+ŷ_5 \\ 
+ŷ_6 \\ 
+ŷ_7 \\ 
+ŷ_8 \\ 
+ŷ_9 \\ 
+ŷ_{10}  
 \end{bmatrix}
+\rightarrow 0
 $$
