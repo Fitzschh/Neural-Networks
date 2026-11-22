@@ -447,4 +447,14 @@ $$
 \end{bmatrix}
 $$
 
-Where each $ŷ_n$ is a class, where $n$ is the digit that they represent.
+Where each $ŷ_n$ is a class, where $n$ is the digit that they represent. And the network predicts which of these 10 classes they mathematically lean towards and give a predictive answer. 
+
+### Forward Propagation
+
+Forward propagation is the process in which the contents of the input vector, is being passed through the network and is affecting how the neurons react to it along the way.
+
+The flow essentially looks like:
+
+$$
+x \rightarrow W^1x \rightarrow W^1x + b^1 \rightarrow z^1 \rightarrow ReLU(z^1) \rightarrow a^1 \rightarrow W^2a^1 \rightarrow \cdots z^n \rightarrow Softmax(z^n) \rightarrow ŷ_m
+$$
