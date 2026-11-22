@@ -445,6 +445,16 @@ $$
 ŷ_9 \\ 
 ŷ_{10}  
 \end{bmatrix}
+\begin{array}{l}
 \rightarrow 0 \\
-\rightarrow 1
+\rightarrow 1 \\
+\rightarrow 2 \\
+\rightarrow 3 \\
+\rightarrow 4 \\
+\rightarrow 5 \\
+\rightarrow 6 \\
+\rightarrow 7 \\
+\rightarrow 8 \\
+\rightarrow 9 \\
+\end{array}
 $$
