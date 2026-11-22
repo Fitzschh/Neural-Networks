@@ -474,7 +474,7 @@ ReLU or Rectified Linear Unit, is an activation function used in neural network 
 The function essentially looks like:
 
 $$
-\operatorname{ReLU}(z) = \begin{cases}
+\text{ReLU}(z) = \begin{cases}
 z, & \text{if } z > 0 \\
 0, & \text{if } z \le 0
 \end{cases}
