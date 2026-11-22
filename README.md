@@ -470,3 +470,9 @@ This is more of a raw result in a neuron equation, which can either be a negativ
 ### ReLU
 
 ReLU or Rectified Linear Unit, is an activation function used in neural network to determine which neurons must be activated or must not be activated. It is basically the on and off boundary for a neuron, allowing it to recognize which value of the input affected which neuron at this specific value. 
+
+The function essentially looks like:
+
+$$
+ReLU(\omicron) = \left\{ \begin{aligned} z, \qquad if z > 0 \\ 0, \qquad if z \leq 0 \right
+$$
