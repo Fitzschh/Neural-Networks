@@ -373,11 +373,17 @@ This design is suitable enough for a MNIST Handwritten Digit Classifier Network.
 
 ### Input Layer
 
-To be able to let a network read an image, we must first turn that same image into numerical data. One way to do it would be the color black and white, since we are only dealing with digits; this serves as the best viable approach as of now. We know that black is 0.0 while white is 255.0. We then divide that value by the maximum, which is 255.0 to convert these large whole numbers into numbers lesser than 1 without actually changing their magnitude, simply we are normalizing the data. Since we are only using Multilayer Perceptron (MLP) as a starting architecture. We turn these numerical data into a flattened vector; making it a 1-D vector with 784 features based on the 28 × 28 pixelated image. 
+To be able to let a network read an image, we must first turn that same image into numerical data. One way to do it would be the color black and white, since we are only dealing with digits; this serves as the best viable approach as of now. We know that black is 0.0 while white is 255.0. We then divide that value by the maximum, which is 255.0 to convert these large whole numbers into numbers lesser than 1 without actually changing their relative proportion, simply we are normalizing the data. Since we are only using Multilayer Perceptron (MLP) as a starting architecture. We turn these numerical data into a flattened vector; making it a 1-D vector with 784 features based on the 28 × 28 pixelated image. 
 
 Take this image as an example:
 
 ![Sample Image](images/five_test1.png)
+
+Let us say that this single image of a handwritten digit 5 is a 28 x 28 pixel image. 
+
+We have a total of 784 pixels, so a total of 784 worth of data from a single image.
+
+Instead of reading 28 pixels per row, repeating such process 28 times. A Multilayer Perceptron instead flattens it into a 1-D vectorized data, so the network can read it in one go. 
 
 ### Hidden Layers
 
