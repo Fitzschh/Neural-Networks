@@ -426,4 +426,23 @@ $$
 
 We can see that $W^1$ represents the weights  of Layer 1, while $W^2$ represents the weights of Layer 2. While n represents the number of neurons the layer has. And m is the number of inputs this layer should take as we have discussed previously in dimensions.
 
+### Output Layer
 
+After the entire process, the network ends with a classification vector where it represents the digits the network can choose from as a predicted answer.
+
+It fundamentally looks like this:
+
+$$
+\begin{bmatrix}
+ŷ_1 \\ \rightarrow 1
+ŷ_2 \\ \rightarrow 2
+ŷ_3 \\ \rightarrow 3
+ŷ_4 \\ \rightarrow 4
+ŷ_5 \\ \rightarrow 5
+ŷ_6 \\ \rightarrow 6
+ŷ_7 \\ \rightarrow 7
+ŷ_8 \\ \rightarrow 8
+ŷ_9 \\ \rightarrow 9
+ŷ_{10}  \rightarrow 10
+\end{bmatrix}
+$$
