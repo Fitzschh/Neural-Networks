@@ -383,6 +383,8 @@ Let us say that this single image of a handwritten digit 5 is a 28 x 28 pixel im
 
 We have a total of 784 pixels, so a total of 784 worth of data from a single image.
 
+Instead of reading 28 pixels per row, repeating such process 28 times. A Multilayer Perceptron instead flattens it into a 1-D vectorized data, so the network can read it in one go. 
+
 So it looks like this mathematically:
 
 $$
@@ -390,13 +392,11 @@ $$
 x_1 \\
 x_2 \\
 \vdots \\
-x_784
+x_{784}
 \end{bmatrix}
 $$
 
 Where we have a vector input, with 784 features in total.
-
-Instead of reading 28 pixels per row, repeating such process 28 times. A Multilayer Perceptron instead flattens it into a 1-D vectorized data, so the network can read it in one go. 
 
 ### Hidden Layers
 
