@@ -375,6 +375,10 @@ This design is suitable enough for a MNIST Handwritten Digit Classifier Network.
 
 To be able to let a network read an image, we must first turn that same image into numerical data. One way to do it would be the color black and white, since we are only dealing with digits; this serves as the best viable approach as of now. We know that black is 0.0 while white is 255.0. We then divide that value by the maximum, which is 255.0 to convert these large whole numbers into numbers lesser than 1 without actually changing their magnitude, simply we are normalizing the data. Since we are only using Multilayer Perceptron (MLP) as a starting architecture. We turn these numerical data into a flattened vector; making it a 1-D vector with 784 features based on the 28 × 28 pixelated image. 
 
+Take this image as an example:
+
+![Sample Image](images/five_test1.png)
+
 ### Hidden Layers
 
 To further understand what the hidden layers looks like mathematically, we will be visualizing it through a matrix
