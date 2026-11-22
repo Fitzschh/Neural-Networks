@@ -456,5 +456,5 @@ Forward propagation is the process in which the contents of the input vector, is
 The flow essentially looks like:
 
 $$
-x \rightarrow W^1x \rightarrow W^1x + b^1 \rightarrow z^1 \rightarrow ReLU(z^1) \rightarrow a^1 \rightarrow W^2a^1 \rightarrow \cdots z^n \rightarrow Softmax(z^n) \rightarrow ŷ_m
+x \rightarrow W^1x \rightarrow W^1x + b^1 \rightarrow z^1 \rightarrow ReLU(z^1) \rightarrow a^1 \rightarrow W^2a^1 \rightarrow \cdots \rightarrow z^n \rightarrow Softmax(z^n) \rightarrow ŷ_m \rightarrow \mathcal{L}
 $$
