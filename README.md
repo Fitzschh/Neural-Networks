@@ -458,3 +458,5 @@ The flow essentially looks like:
 $$
 x \rightarrow W^1x \rightarrow W^1x + b^1 \rightarrow z^1 \rightarrow ReLU(z^1) \rightarrow a^1 \rightarrow W^2a^1 \rightarrow \cdots \rightarrow z^n \rightarrow Softmax(z^n) \rightarrow ŷ_m \rightarrow \mathcal{L}
 $$
+
+Starting from the input vector $x$, multiplied to the weights of the first layer $W^1$, then bias $b^1$ is added, and then results a pre-activated neuron $z^1$, which is plugged into a ReLU function $ReLU(z^1)$, then an activated neuron $a^1$; repeat the process until it reaches the $z^{n^{th}}$ layer of the network, and is activated through a softmax function to classify a digit in the output layer.
