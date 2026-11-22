@@ -465,3 +465,5 @@ Starting from the input vector $x$, multiplied to the weights of the first layer
 
 A pre-activated neuron is the result of an input $x$ being processed to a neuron $z = Wx + b$. It is still pre-activated as it hasn't been plugged into an activation function, where it prevents linearity toward the network which allows it to learn more patterns.
 
+This is more of a raw result in a neuron equation, which can either be a negative value or a positive value. Which makes it linear since it still follows the formula $z = Wx + b$, which is highly identical to $y = mx + b$. 
+
