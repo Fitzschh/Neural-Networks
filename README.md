@@ -433,19 +433,21 @@ After the entire process, the network ends with a classification vector where it
 It fundamentally looks like this:
 
 $$
-\begin{bmatrix}
-ŷ_1 \\ 
-ŷ_2 \\ 
-ŷ_3 \\ 
-ŷ_4 \\ 
-ŷ_5 \\ 
-ŷ_6 \\ 
-ŷ_7 \\ 
-ŷ_8 \\ 
-ŷ_9 \\ 
-ŷ_{10}  
-\end{bmatrix}
-\begin{array}{l}
+\left[
+\begin{array}{@{}c@{}}
+\hat{y}_1 \\
+\hat{y}_2 \\
+\hat{y}_3 \\
+\hat{y}_4 \\
+\hat{y}_5 \\
+\hat{y}_6 \\
+\hat{y}_7 \\
+\hat{y}_8 \\
+\hat{y}_9 \\
+\hat{y}_{10}
+\end{array}
+\right]
+\begin{array}{@{}l@{}}
 \rightarrow 0 \\
 \rightarrow 1 \\
 \rightarrow 2 \\
@@ -455,6 +457,6 @@ $$
 \rightarrow 6 \\
 \rightarrow 7 \\
 \rightarrow 8 \\
-\rightarrow 9 \\
+\rightarrow 9
 \end{array}
 $$
