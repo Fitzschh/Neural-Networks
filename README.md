@@ -445,5 +445,6 @@ $$
 ŷ_9 \\ 
 ŷ_{10}  
 \end{bmatrix}
-\rightarrow 0
+\rightarrow 0 \\
+\rightarrow 1
 $$
