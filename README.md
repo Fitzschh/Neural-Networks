@@ -491,6 +491,17 @@ z_n
 \end{bmatrix}
 $$
 
+Where $n$ indicates the number of pre-activated neurons this particular layer has produced. 
 
+So we can establish that:
 
+$$
+a_n =
+\text{ReLU}(z_n) = \begin{cases}
+z, & \text{if } z > 0 \\
+0, & \text{if } z \le 0
+\end{cases}
+$$
+
+As both the activated neurons and the pre-activated neurons should have the same dimensions of $\mathbb{ℝ}^{n \times 1}$.
 
