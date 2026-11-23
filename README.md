@@ -469,7 +469,7 @@ This is more of a raw result in a neuron equation, which can either be a negativ
 
 ### ReLU
 
-ReLU or Rectified Linear Unit, is an activation function used in neural network to determine which neurons must be activated or must not be activated. It is basically the on and off boundary for a neuron, allowing it to recognize which value of the input affected which neuron at this specific value. 
+ReLU or Rectified Linear Unit, is an activation function used in neural network to determine which neurons must be activated or must not be activated. It is basically the on and off switch for a neuron, allowing it to recognize which value of the input affected which neuron at this specific value. 
 
 The function essentially looks like:
 
@@ -479,3 +479,18 @@ z, & \text{if } z > 0 \\
 0, & \text{if } z \le 0
 \end{cases}
 $$
+
+Since we essentially have pre-activated neurons like this:
+
+$$
+\begin{bmatrix}
+z_1 \\
+z_2 \\
+\vdots \\
+z_n
+\end{bmatrix}
+$$
+
+
+
+
