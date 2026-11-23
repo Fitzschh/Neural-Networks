@@ -553,6 +553,6 @@ Instead of measuring in accuracy, we will be calculating for inaccuracy instead.
 The formula for Cross-Entropy Loss is:
 
 $$
-\mathcal{L}(y,ŷ) = - \sum_{i=0}^9y_iln(ŷ_i)
+\mathcal{L}(y,ŷ) = - \sum_{i=0}^9y_i\ln(ŷ_i)
 $$
 
