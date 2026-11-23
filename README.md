@@ -485,6 +485,7 @@ Which by definition, takes pre-activated neurons and flattens every negative val
 We should be expecting results like:
 
 $$
+a =
 \begin{bmatrix}
 2.12 \\
 0.90 \\
@@ -501,6 +502,7 @@ $$
 Since we essentially have pre-activated neurons like this:
 
 $$
+z =
 \begin{bmatrix}
 z_1 \\
 z_2 \\
@@ -521,5 +523,5 @@ z, & \text{if } z > 0 \\
 \end{cases}
 $$
 
-As both the activated neurons and pre-activated neurons should have the same dimensions of $\mathbb{ℝ}^{n \times 1}$. With each result in $a_i$, corresponds to the pre-activated neurons $z_i$ by the index of $i$. 
+As both the activated neurons and pre-activated neurons should have the same dimensions of $\mathbb{ℝ}^{n \times 1}$. With each values in $z_i$, must correspond to the activated neurons $a_i$ as a result after activation. These values correspond with one another through the index of $i$. 
 
