@@ -355,7 +355,7 @@ In the case of $W$ and $x$, $W$ has dimensions of $(3 \times 4)$ while $x$ has d
 
 ## Mathematical Implementation
 
-### Problem
+#### Problem
 
 In this project, we have already established that we will be using an MNIST Handwritten Digit Classifier as our sample problem. Since traditional programming cannot determine accurately or in absolute precision what a human's handwritten digit looks like, we must make a computer learn how to think by itself by generalizing a concept or an object through parts, patterns and forms.
 
@@ -367,11 +367,11 @@ As such, we will be constructing a Multilayer Perceptron (MLP) neural network.
 
 Every neuron of each layer is communicating with one another.
 
-### 4 Layered Neural Network
+#### 4 Layered Neural Network
 
 This design is suitable enough for a MNIST Handwritten Digit Classifier Network. A neural network consists of several layers, we have the Input Layer, Hidden Layers, and the Output Layer. As they are named, the Input Layer consists the layer where the input is being fed to the network. The Hidden Layers are the extra layers, and is also the layer where "learning" mostly occurs. They can be as many layers as you want, but increasing the number of layers may provide "deep learning" but it doesn't guarantee increase in performance all the time, in fact it could worsen the network when it is forced to do "deep learning" for simple tasks such as recognizing a handwritten digit. And finally, the Output Layer; where the network successfully processes the input and predicts an output.
 
-### Input Layer
+#### Input Layer
 
 To be able to let a network read an image, we must first turn that same image into numerical data. One way to do it would be the color black and white, since we are only dealing with digits; this serves as the best viable approach as of now. We know that black is 0.0 while white is 255.0. We then divide that value by the maximum, which is 255.0 to convert these large whole numbers into numbers lesser than 1 without actually changing their relative proportion, simply we are normalizing the data. Since we are only using Multilayer Perceptron (MLP) as a starting architecture. We turn these numerical data into a flattened vector; making it a 1-D vector with 784 features based on the 28 × 28 pixelated image. 
 
@@ -398,7 +398,7 @@ $$
 
 Where we have a vector input, with 784 features in total.
 
-### Hidden Layers
+#### Hidden Layers
 
 To further understand what the hidden layers looks like mathematically, we will be visualizing it through a matrix
 
@@ -426,7 +426,7 @@ $$
 
 We can see that $W^1$ represents the weights  of Layer 1, while $W^2$ represents the weights of Layer 2. While n represents the number of neurons the layer has. And m is the number of inputs this layer should take as we have discussed previously in dimensions.
 
-### Output Layer
+#### Output Layer
 
 After the entire process, the network ends with a classification vector where it represents the digits the network can choose from as a predicted answer.
 
@@ -461,13 +461,13 @@ $$
 
 Starting from the input vector $x$, multiplied to the weights of the first layer $W^1$, then bias $b^1$ is added, and then results a pre-activated neuron $z^1$, which is plugged into a ReLU function $ReLU(z^1)$, then an activated neuron $a^1$; repeat the process until it reaches the $z^{n^{th}}$ layer of the network, and is activated through a softmax function to classify a digit in the output layer.
 
-### Pre-Activated Neuron
+#### Pre-Activated Neuron
 
 A pre-activated neuron is the result of an input $x$ being processed to a neuron $z = Wx + b$. It is still pre-activated as it hasn't been plugged into an activation function, where it prevents linearity toward the network which allows it to learn more patterns.
 
 This is more of a raw result in a neuron equation, which can either be a negative value or a positive value. Which makes it linear since it still follows the formula $z = Wx + b$, which is highly identical to $y = mx + b$. 
 
-### Activation Function (ReLU)
+#### Activation Function (ReLU)
 
 ReLU or Rectified Linear Unit, is an activation function used in neural network to determine which neurons must be activated or must not be activated. It is basically the on and off switch for a neuron, allowing it to recognize which value of the input affected which neuron at this specific value. 
 
@@ -494,7 +494,7 @@ z =
 1.82 \\
 -3.50 \\
 3.45 \\
--1.85 \\
+0.00 \\
 -0.35
 \end{bmatrix}
 $$
@@ -543,4 +543,6 @@ z, & \text{if } z > 0 \\
 $$
 
 As both the activated neurons and pre-activated neurons should have the same dimensions of $\mathbb{ℝ}^{n \times 1}$. With each values in $z_i$, must correspond to the activated neurons $a_i$ as a result after activation. These values correspond with one another through the index of $i$. 
+
+#### Cross-Entropy Loss
 
