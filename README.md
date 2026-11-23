@@ -482,6 +482,23 @@ $$
 
 Which by definition, takes pre-activated neurons and flattens every negative value to zero as well as neurons that has values of zero, and accepts values above zero as it is.
 
+For example:
+
+$$
+z =
+\begin{bmatrix}
+2.12 \\
+0.90 \\
+1.55 \\
+-1.20 \\
+1.82 \\
+-3.50 \\
+3.45 \\
+-1.85 \\
+-0.35
+\end{bmatrix}
+$$
+
 We should be expecting results like:
 
 $$
@@ -498,6 +515,8 @@ a =
 0
 \end{bmatrix}
 $$
+
+As we can clearly observe, the negative values are eliminated.
 
 Since we essentially have pre-activated neurons like this:
 
