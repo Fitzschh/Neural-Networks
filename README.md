@@ -496,12 +496,12 @@ Where $n$ indicates the number of pre-activated neurons this particular layer ha
 So we can establish that:
 
 $$
-a_n =
-\text{ReLU}(z_n) = \begin{cases}
+a_i =
+\text{ReLU}(z_i) = \begin{cases}
 z, & \text{if } z > 0 \\
 0, & \text{if } z \le 0
 \end{cases}
 $$
 
-As both the activated neurons and the pre-activated neurons should have the same dimensions of $\mathbb{ℝ}^{n \times 1}$.
+As both the activated neurons and the pre-activated neurons should have the same dimensions of $\mathbb{ℝ}^{n \times 1}$. With each result in $a_i$, corresponds the the pre-activated neurons $z_i$ by the index of $i$. 
 
