@@ -546,3 +546,9 @@ As both the activated neurons and pre-activated neurons should have the same dim
 
 #### Cross-Entropy Loss
 
+The network can now successfully predict a digit, but we have no means of determining how confident and accurate it is in its answers or predictions. As such, the Cross-Entropy Loss is introduced; used for determining how confident or how inaccurate the network is. 
+
+Instead of measuring in accuracy, we will be calculating for inaccuracy instead. The lower the loss between the prediction and the real value is, the successful the network has generalized a concept. Although having no loss, wouldn't automatically be better for a network, as in most case it would mean that the network simply memorized the trained material and struggles to process new information or data.
+
+
+
