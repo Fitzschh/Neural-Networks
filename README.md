@@ -467,7 +467,7 @@ A pre-activated neuron is the result of an input $x$ being processed to a neuron
 
 This is more of a raw result in a neuron equation, which can either be a negative value or a positive value. Which makes it linear since it still follows the formula $z = Wx + b$, which is highly identical to $y = mx + b$. 
 
-### ReLU
+### Activation Function (ReLU)
 
 ReLU or Rectified Linear Unit, is an activation function used in neural network to determine which neurons must be activated or must not be activated. It is basically the on and off switch for a neuron, allowing it to recognize which value of the input affected which neuron at this specific value. 
 
