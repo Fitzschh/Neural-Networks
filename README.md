@@ -480,6 +480,24 @@ z, & \text{if } z > 0 \\
 \end{cases}
 $$
 
+Which by definition, takes pre-activated neurons and flattens every negative value to zero as well as neurons that has values of zero, and accepts values above zero as it is.
+
+We should be expecting results like:
+
+$$
+\begin{bmatrix}
+2.12 \\
+0.90 \\
+1.55 \\
+0 \\
+1.82 \\
+0 \\
+3.45 \\
+0 \\
+0
+\end{bmatrix}
+$$
+
 Since we essentially have pre-activated neurons like this:
 
 $$
@@ -503,5 +521,5 @@ z, & \text{if } z > 0 \\
 \end{cases}
 $$
 
-As both the activated neurons and the pre-activated neurons should have the same dimensions of $\mathbb{ℝ}^{n \times 1}$. With each result in $a_i$, corresponds the the pre-activated neurons $z_i$ by the index of $i$. 
+As both the activated neurons and pre-activated neurons should have the same dimensions of $\mathbb{ℝ}^{n \times 1}$. With each result in $a_i$, corresponds to the pre-activated neurons $z_i$ by the index of $i$. 
 
