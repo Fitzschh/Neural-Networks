@@ -567,7 +567,31 @@ $$
 ŷ_0 \\
 ŷ_1 \\
 ŷ_2 \\
-\vdots \\
+ŷ_3 \\
+ŷ_4 \\
+ŷ_5 \\
+ŷ_6 \\
+ŷ_7 \\
+ŷ_8 \\
 ŷ_9
+\end{bmatrix}
+$$
+
+while the true label, or the one-hot encoded vector should look like:
+
+
+$$
+y =
+\begin{bmatrix}
+0 \\
+0 \\
+0 \\
+1 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 
 \end{bmatrix}
 $$
