@@ -595,3 +595,5 @@ y =
 0 
 \end{bmatrix}
 $$
+
+Where, $y$ contains a vector with the same feature and dimension as the predicted outcome from the network; indicating the true label, where we can see a single class labeled as 1, while every other number is 0. In our example, we can see that the feature in the vector that is labeled with 1, corresponds to the feature $ŷ_3$ on the vector containing the predicted outcome. 
