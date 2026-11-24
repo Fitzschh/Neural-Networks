@@ -550,9 +550,24 @@ The network can now successfully predict a digit, but we have no means of determ
 
 Instead of measuring in accuracy, we will be calculating for inaccuracy instead. The lower the loss between the prediction and the real value is, the successful the network has generalized a concept. Although having no loss, wouldn't automatically be better for a network, as in most case it would mean that the network simply memorized the trained material and struggles to process new information or data.
 
-The formula for Cross-Entropy Loss is:
+The equation for Cross-Entropy Loss is:
 
 $$
 \mathcal{L}(y,ŷ) = - \sum_{i=0}^9y_i\ln(ŷ_i)
 $$
 
+
+To understand, comparison between $ŷ$; the network's predicted outcome, and $y$; the true label of the input.
+
+In our case, it usually is written in a form of:
+
+$$
+ŷ =
+\begin{bmatrix}
+ŷ_0 \\
+ŷ_1 \\
+ŷ_2 \\
+\vdots \\
+ŷ_9
+\end{bmatrix}
+$$
