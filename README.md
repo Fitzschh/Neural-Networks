@@ -310,7 +310,7 @@ $$
 
 and then sum up the product of each feature into one result per each neuron.
 
-#### Dimensions
+#### <ins>Dimensions</ins>
 
 As you have observed, the result of $Wx$ only has 3 neurons, while the input $x$ has 4 features. That is because the result follows the same dimension as the weights. There are some rules these operations must abide. 
 
