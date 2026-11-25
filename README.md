@@ -23,7 +23,7 @@ The project also encourages the use and need for low level implementations of se
 
 ## Mathematical Principles
 
-### Linear Algebra
+### <ins>Linear Algebra</ins>
 
 In programming, linear algebra has been widely used especially with game development. What actually is the difference between linear algebra and the traditional and usual algebra we learned during high school and college? And why do we need this for Artificial Intelligence as well?
 
