@@ -654,3 +654,6 @@ $$
 $$
 \mathcal{L}(y,ŷ) = 0.1278
 $$
+
+So now, we have the loss value of $ŷ$. And we can use that to measure and determine how well the network did. Since the network was only 88% confident with its answers, a loss value should be expected. If it was 100% then there would be no loss; that however, isn't viable and suitable for a network. As there is a difference between a program that is able to answer accurately for a concept that is already familiar to it and struggles with new information; and a program that is able to generalize and understand a concept conceptually rather than accuracy, and is able to answer concepts that is slightly unfamiliar. 
+
