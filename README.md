@@ -29,7 +29,7 @@ In programming, linear algebra has been widely used especially with game develop
 
 The core idea is that the algebra we know only solves one problem at a time. What makes linear algebra so special is that it allows multiple calculations to happen all at once. And since we are dealing with multivariable problems when it comes to game development or artificial intelligence, linear algebra is crucial in these cases.
 
-<ins>#### Vectors</ins>
+#### <ins>Vectors</ins>
 
 In neural networks, vectors are seen differently than how they are in math and physics. In math, they are seen as arrows, a quantity that has both magnitude and direction. In our case, we refer to it as containers for data. It is an array of numbers where it represents a specific attribute or feature. 
 
