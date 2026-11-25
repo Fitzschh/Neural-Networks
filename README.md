@@ -108,7 +108,7 @@ $$
 
 So why is it initialized in random? What exactly are the weights?
 
-#### Weights
+#### <ins>Weights</ins>
 
 This is what the matrix $W$ represents on the mathematical formula of a neuron. It is a matrix filled with digits distributed randomly at first. It is random because it crosses out symmetry on the weights. Imagine if all weight values are equal, then the results would be identical as well. This is will make sense later on when the idea of updating the weights is introduced. 
 
@@ -125,7 +125,7 @@ $$
 
 Each digits in a row represents the weights of that neuron. 
 
-#### Inputs
+#### <ins>Inputs</ins>
 
 This is what $x$ is representing on the mathematical formula of a neuron. Most of the time, it is a vector; but there are cases where it is a matrix as well. But in this project, it is usually a vector containing the features and data of an input. 
 
@@ -143,7 +143,7 @@ $$
 
 This is an example of an input where it has four features. It represents the data of an input mathematically. 
 
-#### Bias
+#### <ins>Bias</ins>
 
 For the bias where it represents the $b$ on the neuron formula, the primary reason is purely mathematical. Consider the mathematical formula for the neuron $z = Wx + b$. If we removed $b$, the origin for each would be at (0, 0), making it harder for the network to distinguish patterns and is limited only to that certain origin. By adding a bias, the boundaries can be placed anywhere on the graph, as it "shifts" the equation. Which is why the formula for a neuron is $z = Wx + b$. 
 
