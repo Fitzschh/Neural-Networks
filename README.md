@@ -631,3 +631,5 @@ y =
 0 
 \end{bmatrix}
 $$
+
+Observe that the predicted answer $ŷ$, is 88% confident with the answer placed in $ŷ_3$. Compare it with $y$ side by side, we should be able to see that the network was giving a predicted answer of $ŷ$, which matches the expected output or true value $y$. 
