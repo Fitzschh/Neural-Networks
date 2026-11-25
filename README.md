@@ -190,7 +190,7 @@ This is what a neuron operations looks like mathematically.
 
 You will also notice that the input vector is the only one that isn't symmetrically aligned to both weights and biases. It is the only one with 4 features while the weights and biases only has three. 
 
-### Linear Transformations
+### <ins>Linear Transformations</ins>
 
 #### Scalar to Vector Operations
 
