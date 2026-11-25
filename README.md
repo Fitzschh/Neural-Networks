@@ -545,6 +545,10 @@ $$
 
 As both the activated neurons and pre-activated neurons should have the same dimensions of $\mathbb{ℝ}^{n \times 1}$. With each values in $z_i$, must correspond to the activated neurons $a_i$ as a result after activation. These values correspond with one another through the index of $i$. 
 
+#### Softmax Activation Function
+
+After successfully passing through several layers, the processed information arrives at the last layer of the network, which is the Output Layer. In our case, the output layer consists of 10 classes for 10 different digits: ${0, 1, 2, /dots, 9}$. 
+
 #### Cross-Entropy Loss
 
 The network can now successfully predict a digit, but we have no means of determining how confident and accurate it is in its answers or predictions. As such, the Cross-Entropy Loss is introduced; used for determining how confident or how inaccurate the network is. 
