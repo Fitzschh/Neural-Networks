@@ -598,5 +598,36 @@ $$
 
 Where, $y$ contains a vector with the same feature and dimension as the predicted outcome from the network; indicating the true label, where we can see a single class labeled as 1, while every other number is 0. In our example, we can see that the feature in the vector that is labeled with 1, corresponds to the feature $ŷ_3$ on the vector containing the predicted outcome.
 
-From that, we can establish that the one-hot encoded vector $y$ is a true label for an input indicating as 3; since we start at index 0 from $y_0$, and as we can clearly locate which index in the vector has the label 1, the digit's true label is 3.
+From that, we can establish that the one-hot encoded vector $y$ is a true label for an input indicated as 3; since we start at index 0 from $y_0$, and as we can clearly locate which index in the vector has the label 1, the digit's true label is 3.
 
+As an example, suppose we have the two vectors side by side:
+
+$$
+ŷ =
+\begin{bmatrix}
+ŷ_0 \\
+ŷ_1 \\
+ŷ_2 \\
+ŷ_3 \\
+ŷ_4 \\
+ŷ_5 \\
+ŷ_6 \\
+ŷ_7 \\
+ŷ_8 \\
+ŷ_9
+\end{bmatrix}
+\qquad \qquad
+y =
+\begin{bmatrix}
+0 \\
+0 \\
+0 \\
+1 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 
+\end{bmatrix}
+$$
