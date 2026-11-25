@@ -192,7 +192,7 @@ You will also notice that the input vector is the only one that isn't symmetrica
 
 ### <ins>Linear Transformations</ins>
 
-#### Scalar to Vector Operations
+#### <ins>Scalar to Vector Operations</ins>
 
 Now we will introduce the first fundamental operations in linear algebra that is essential for neural networks and is the key to understanding why the mathematics inside a neural network works.
 
@@ -229,7 +229,7 @@ This is an example of a scalar to vector operations, the scalar multiplies every
 
 But in neural networks, we aren't dealing with just a single digit, but a lot of them. So we do an operation one step further. 
 
-#### Dot Product
+#### <ins>Dot Product</ins>
 
 We have tackled what scalar to vector operations looks like, but what if it’s a vector to vector, or even a vector to matrix operations? That’s what dot product is. Instead of one value affecting a vector, there are several at once. And knowing how it works and behaves is crucial to understanding how the entire neural network operates without abstraction.
 
