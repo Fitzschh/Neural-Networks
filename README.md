@@ -639,3 +639,18 @@ Now to actually determine the Cross-Entropy Loss for the network's answer:
 $$
 \mathcal{L}(y,ŷ) = - \sum_{i=0}^9y_i\ln(ŷ_i)
 $$
+
+Since every entry for $y_i$ is 0 except for $i = 3$, the result would be 0. For $i = 3$, we get:
+
+$$
+\mathcal{L}(y,ŷ) = - y_3\ln(ŷ_3)
+$$
+$$
+\mathcal{L}(y,ŷ) = - (1)\ln(0.88)
+$$
+$$
+\mathcal{L}(y,ŷ) = - \ln(0.88)
+$$
+$$
+\mathcal{L}(y,ŷ) = 0.1278
+$$
