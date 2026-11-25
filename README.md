@@ -51,6 +51,7 @@ Like vectors, a matrix is an array of numbers and information that serves as con
 There are two use cases for the matrix:
 
 1.) Containers of data - storing and representing a series of valuable data (an example would be a data set)
+
 2.) Containers of weights - a weight represents the neuron's ability to influence relative to the received input (most common use case)
 
 Consider this equation:
