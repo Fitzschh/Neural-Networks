@@ -632,4 +632,10 @@ y =
 \end{bmatrix}
 $$
 
-Observe that the predicted answer $ŷ$, is 88% confident with the answer placed in $ŷ_3$. Compare it with $y$ side by side, we should be able to see that the network was giving a predicted answer of $ŷ$, which matches the expected output or true value $y$. 
+Observe that the predicted answer $ŷ$, is 88% confident with the answer placed in $ŷ_3$. Compare it with $y$ side by side, we should be able to see that the network was giving a predicted answer $ŷ$, which matches the expected output or true value $y$. 
+
+Now to actually determine the Cross-Entropy Loss for the network's answer:
+
+$$
+\mathcal{L}(y,ŷ) = - \sum_{i=0}^9y_i\ln(ŷ_i)
+$$
