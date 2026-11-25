@@ -605,16 +605,16 @@ As an example, suppose we have the two vectors side by side:
 $$
 ŷ =
 \begin{bmatrix}
-ŷ_0 \\
-ŷ_1 \\
-ŷ_2 \\
-ŷ_3 \\
-ŷ_4 \\
-ŷ_5 \\
-ŷ_6 \\
-ŷ_7 \\
-ŷ_8 \\
-ŷ_9
+0.01 \\
+0.00 \\
+0.03 \\
+0.88 \\
+0.00 \\
+0.02 \\
+0.00 \\
+0.02 \\
+0.03 \\
+0.01
 \end{bmatrix}
 \qquad \qquad
 y =
