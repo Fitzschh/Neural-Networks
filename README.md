@@ -547,7 +547,7 @@ As both the activated neurons and pre-activated neurons should have the same dim
 
 #### Softmax Activation Function
 
-After successfully passing through several layers, the processed information arrives at the last layer of the network, which is the Output Layer. In our case, the output layer consists of 10 classes for 10 different digits: ${0, 1, 2, /dots, 9}$. 
+After successfully passing through several layers, the processed information arrives at the last layer of the network, which is the Output Layer. In our case, the output layer consists of 10 classes for 10 different digits: {0, 1, 2, $/ldots$, 9}. 
 
 #### Cross-Entropy Loss
 
