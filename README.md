@@ -576,10 +576,12 @@ $$
 or
 
 $$
-\y_hat = \frac{e^{z_i}}{\sum_{j=0}e^{z_j}}
+ŷ = \frac{e^{z_i}}{\sum_{j=0}e^{z_j}}
 $$
 
-Where $\y_hat$ is basically the vector containing the probabilities after the activation function.
+Where $ŷ$ is basically the vector containing the probabilities after the activation function. 
+
+If zero exists in this activation function, in the numerator; it becomes zero. In the denominator though, is significantly worse, which would result to undefined or basically just breaks the equation. So $e^x$ exists, where $x$ is the logits $z_i$ where $i$ represents at which index this logit is.
 
 #### Cross-Entropy Loss
 
