@@ -545,7 +545,7 @@ $$
 
 As both the activated neurons and pre-activated neurons should have the same dimensions of $\mathbb{ℝ}^{n \times 1}$. With each values in $z_i$, must correspond to the activated neurons $a_i$ as a result after activation. These values correspond with one another through the index of $i$. 
 
-#### Softmax Activation Function
+#### <ins>Softmax Activation Function</ins>
 
 After successfully passing through several layers, the processed information arrives at the last layer of the network, which is the Output Layer. In our case, the output layer consists of 10 classes for 10 different digits: {0, 1, 2, $\ldots$, 9}. To determine what the answer is, we must only accept one valid answer in our case. To do so, among these 10 digits; we will be combining everything to result with 1. So the main idea is to distribute the information from the network into a single value of 1. 
 
