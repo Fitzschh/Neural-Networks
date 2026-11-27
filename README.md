@@ -559,6 +559,10 @@ $$
 e \approx 2.7183...
 $$
 
+Why is it relevant?
+
+It prevents numbers from ever becoming negative, it guarantees that every term is strictly positive $(e^z > 0)$.
+
 #### Cross-Entropy Loss
 
 The network can now successfully predict a digit, but we have no means of determining how confident and accurate it is in its answers or predictions. As such, the Cross-Entropy Loss is introduced; used for determining how confident or how inaccurate the network is. 
