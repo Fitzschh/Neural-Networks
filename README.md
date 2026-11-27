@@ -551,6 +551,14 @@ After successfully passing through several layers, the processed information arr
 
 One mathematical concept that fits well with the means of only one answer is probability. The highest probability among these classes of digit would be the network's answer or predicted answer. So we turn these 10 classes into probabilities, and compare them to other digits to classify which digit is most likely the input is. The core idea would be distributing the information of these logits where the sum to all of them is 1. 
 
+One mathematical idea solves that exact specific problem:
+
+First we will introduce euler's number $e$:
+
+$$
+e \approx 2.7183...
+$$
+
 #### Cross-Entropy Loss
 
 The network can now successfully predict a digit, but we have no means of determining how confident and accurate it is in its answers or predictions. As such, the Cross-Entropy Loss is introduced; used for determining how confident or how inaccurate the network is. 
