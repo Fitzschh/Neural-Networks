@@ -21,8 +21,8 @@ The project also encourages the use and need for low level implementations of se
 
 ## Table of Contents
 
--[Chapter I](#chapter-i)
- -[Mathematical Principles](#mathematical-principles)
+- [Chapter I](#chapter-i)
+ - [Mathematical Principles](#mathematical-principles)
 
 ## Chapter I
 
