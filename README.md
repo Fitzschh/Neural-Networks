@@ -399,7 +399,7 @@ $$
 
 Where we have a vector input, with 784 features in total.
 
-#### Hidden Layers
+#### <ins>Hidden Layers</ins>
 
 To further understand what the hidden layers looks like mathematically, we will be visualizing it through a matrix
 
