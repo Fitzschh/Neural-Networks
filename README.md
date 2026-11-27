@@ -573,6 +573,14 @@ $$
 Softmax = \frac{e^{z_i}}{\sum_{j=0}e^{z_j}}
 $$
 
+or
+
+$$
+\y_hat = \frac{e^{z_i}}{\sum_{j=0}e^{z_j}}
+$$
+
+Where $\y_hat$ is basically the vector containing the probabilities after the activation function.
+
 #### Cross-Entropy Loss
 
 The network can now successfully predict a digit, but we have no means of determining how confident and accurate it is in its answers or predictions. As such, the Cross-Entropy Loss is introduced; used for determining how confident or how inaccurate the network is. 
