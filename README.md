@@ -19,6 +19,11 @@ The project serves as a tangible output while learning the fundamental mathemati
 
 The project also encourages the use and need for low level implementations of several functions, such as a summation function made with pure python, or the crucial mathematical functions used in Machine Learning, such as the dot product, softmax and more.
 
+## Table of Contents
+
+-[Chapter I](#chapter-i)
+ -[Mathematical Principles](#mathematical-principles)
+
 ## Chapter I
 
 ## Mathematical Principles
