@@ -573,7 +573,7 @@ $$
 Softmax = \frac{e^{z_i}}{\sum_{j=0}e^{z_j}}
 $$
 
-$\qquad \qquad$ or
+$\qquad \qquad \qquad \qquad \qquad \qquad$ or
 
 $$
 ŷ = \frac{e^{z_i}}{\sum_{j=0}e^{z_j}}
