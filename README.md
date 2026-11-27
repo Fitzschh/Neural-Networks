@@ -549,7 +549,7 @@ As both the activated neurons and pre-activated neurons should have the same dim
 
 After successfully passing through several layers, the processed information arrives at the last layer of the network, which is the Output Layer. In our case, the output layer consists of 10 classes for 10 different digits: {0, 1, 2, $\ldots$, 9}. To determine what the answer is, we must only accept one valid answer in our case. To do so, among these 10 digits; we will be combining everything to result with 1. So the main idea is to distribute the information from the network into a single value of 1. 
 
-One mathematical concept that fits well with the concept of only one answer is the probability. The highest probability among these classes of digit would be the network's answer or predicted answer. 
+One mathematical concept that fits well with the means of only one answer is probability. The highest probability among these classes of digit would be the network's answer or predicted answer. So we turn these 10 classes into probabilities, and compare them to other digits to classify which digit is most likely the input is. The core idea would be distributing the information of these logits where the sum to all of them is 1. 
 
 #### Cross-Entropy Loss
 
