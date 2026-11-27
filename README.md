@@ -450,7 +450,7 @@ $$
 
 Where each $ŷ_n$ is a class, where $n$ is the digit that they represent. And the network predicts which of these 10 classes they mathematically lean towards and give a predictive answer. 
 
-### Forward Propagation
+### <ins>Forward Propagation</ins>
 
 Forward propagation is the process in which the contents of the input vector, is being passed through the network and is affecting how the neurons react to it along the way.
 
