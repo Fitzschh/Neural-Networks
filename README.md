@@ -462,7 +462,7 @@ $$
 
 Starting from the input vector $x$, multiplied to the weights of the first layer $W^1$, then bias $b^1$ is added, and then results a pre-activated neuron $z^1$, which is plugged into a ReLU function $ReLU(z^1)$, then an activated neuron $a^1$; repeat the process until it reaches the $z^{n^{th}}$ layer of the network, and is activated through a softmax function to classify a digit in the output layer.
 
-#### Pre-Activated Neuron
+#### <ins>Pre-Activated Neuron</ins>
 
 A pre-activated neuron is the result of an input $x$ being processed to a neuron $z = Wx + b$. It is still pre-activated as it hasn't been plugged into an activation function, where it prevents linearity toward the network which allows it to learn more patterns.
 
