@@ -563,6 +563,16 @@ Why is it relevant?
 
 It prevents numbers from ever becoming negative, it guarantees that every term is strictly positive $(e^z > 0)$.
 
+Why is it essential?
+
+We introduce the activation function that will turn these 10 logits into a probability based answer from the network.
+
+This is the Softmax activation function:
+
+$$
+Softmax = \frac{e^{z_i}}{\sum_{j=0}e^{z_j}}
+$$
+
 #### Cross-Entropy Loss
 
 The network can now successfully predict a digit, but we have no means of determining how confident and accurate it is in its answers or predictions. As such, the Cross-Entropy Loss is introduced; used for determining how confident or how inaccurate the network is. 
