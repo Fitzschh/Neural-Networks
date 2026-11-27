@@ -583,7 +583,7 @@ Where $ŷ$ is basically the vector containing the probabilities after the activa
 
 If zero exists in this activation function, in the numerator; it becomes zero. In the denominator though, is significantly worse, which would result to undefined or basically just breaks the equation. So $e^x$ exists, where $x$ is the logits $z_i$ where $i$ represents at which index this logit is.
 
-#### Cross-Entropy Loss
+#### <ins>Cross-Entropy Loss</ins>
 
 The network can now successfully predict a digit, but we have no means of determining how confident and accurate it is in its answers or predictions. As such, the Cross-Entropy Loss is introduced; used for determining how confident or how inaccurate the network is. 
 
