@@ -35,6 +35,7 @@ The project also encourages the use and need for low level implementations of se
      - [Dot Product](#dot-product)
      - [Dimensions](#dimensions)
  - [Chapter II](#chapter-ii)
+   - [Mathematical Implementation](#mathematical-implementation)
 
 ## Chapter I
 
