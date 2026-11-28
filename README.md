@@ -38,7 +38,7 @@ The project also encourages the use and need for low level implementations of se
  - [Mathematical Implementation](#mathematical-implementation)
    - [Problem](#problem)
    - [Neural Network Architecture](#neural-network-architecture)
-     - [4 Layered Neural Networks](#4-layered-neural-networks)
+     - [4 Layered Neural Network](#4-layered-neural-network)
 
 ## Chapter I
 
