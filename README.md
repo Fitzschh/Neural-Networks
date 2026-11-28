@@ -24,6 +24,8 @@ The project also encourages the use and need for low level implementations of se
 - [Chapter I](#chapter-i)
  - [Mathematical Principles](#mathematical-principles)
    - [Linear Algebra](#linear-algebra)
+     - [Vectors](#vectors)
+       
 
 ## Chapter I
 
