@@ -40,6 +40,7 @@ The project also encourages the use and need for low level implementations of se
    - [Neural Network Architecture](#neural-network-architecture)
      - [4 Layered Neural Network](#4-layered-neural-network)
      - [Input Layer](#input-layer)
+     - [Hidden Layers](#hidden-layers)
 
 ## Chapter I
 
