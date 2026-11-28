@@ -31,6 +31,7 @@ The project also encourages the use and need for low level implementations of se
      - [Inputs](#inputs)
      - [Bias](#bias)
    - [Linear Transformations](#linear-transformations)
+     - [Scalar to Vector Operations](#scalar-to-vector-operations)
        
 
 ## Chapter I
