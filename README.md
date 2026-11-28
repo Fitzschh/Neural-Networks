@@ -34,8 +34,9 @@ The project also encourages the use and need for low level implementations of se
      - [Scalar to Vector Operations](#scalar-to-vector-operations)
      - [Dot Product](#dot-product)
      - [Dimensions](#dimensions)
- - [Chapter II](#chapter-ii)
-   - [Mathematical Implementation](#mathematical-implementation)
+- [Chapter II](#chapter-ii)
+ - [Mathematical Implementation](#mathematical-implementation)
+   -[Problem](#problem)
 
 ## Chapter I
 
@@ -374,7 +375,7 @@ In the case of $W$ and $x$, $W$ has dimensions of $(3 \times 4)$ while $x$ has d
 
 ## Mathematical Implementation
 
-#### <ins>Problem</ins>
+### <ins>Problem</ins>
 
 In this project, we have already established that we will be using an MNIST Handwritten Digit Classifier as our sample problem. Since traditional programming cannot determine accurately or in absolute precision what a human's handwritten digit looks like, we must make a computer learn how to think by itself by generalizing a concept or an object through parts, patterns and forms.
 
