@@ -32,6 +32,7 @@ The project also encourages the use and need for low level implementations of se
      - [Bias](#bias)
    - [Linear Transformations](#linear-transformations)
      - [Scalar to Vector Operations](#scalar-to-vector-operations)
+     - [Dot Product](#dot-product)
        
 
 ## Chapter I
