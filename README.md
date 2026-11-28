@@ -33,6 +33,7 @@ The project also encourages the use and need for low level implementations of se
    - [Linear Transformations](#linear-transformations)
      - [Scalar to Vector Operations](#scalar-to-vector-operations)
      - [Dot Product](#dot-product)
+     - [Dimensions](#dimensions)
        
 
 ## Chapter I
