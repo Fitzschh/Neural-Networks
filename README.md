@@ -36,7 +36,7 @@ The project also encourages the use and need for low level implementations of se
      - [Dimensions](#dimensions)
 - [Chapter II](#chapter-ii)
  - [Mathematical Implementation](#mathematical-implementation)
-   -[Problem](#problem)
+   - [Problem](#problem)
 
 ## Chapter I
 
