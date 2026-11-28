@@ -28,6 +28,7 @@ The project also encourages the use and need for low level implementations of se
      - [Matrices](#matrices)
    - [Neurons](#neurons)
      - [Weights](#weights)
+     - [Inputs](#inputs)
        
 
 ## Chapter I
